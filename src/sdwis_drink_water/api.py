@@ -10,10 +10,37 @@ log = logging.getLogger(__name__)
 
 
 class SdwisAPI:
+    """
+    The SdwisAPI class provides an interface to interact with the EPA's SDWIS data service.
+    It supports making HTTP requests with optional caching and retries.
+
+    Attributes:
+        base_url (str): The base URL for the EPA's data service.
+        retry_count (int): Number of times to retry a request on failure.
+        retry_delay (int): Delay between retries in seconds.
+        timeout (int): Timeout for the HTTP requests.
+        enable_cache (bool): Flag to enable or disable request caching.
+        cache_time (int): Duration for which the cache is valid.
+        print_url (bool): Flag to enable or disable printing of the request URL.
+        user_agent (str): User agent string for the HTTP requests.
+    """
     def __init__(
             self, base_url='https://data.epa.gov/efservice', retry_count=0, retry_delay=0,
             timeout=10, user_agent=None, enable_cache=True, cache_time=3600, print_url=False
     ):
+        """
+        Initializes the SdwisAPI object with given configuration.
+
+        Parameters:
+            base_url (str): The base URL for the EPA's data service.
+            retry_count (int): Number of times to retry a request on failure.
+            retry_delay (int): Delay between retries in seconds.
+            timeout (int): Timeout for the HTTP requests.
+            user_agent (str): User agent string for the HTTP requests.
+            enable_cache (bool): Flag to enable or disable request caching.
+            cache_time (int): Duration for which the cache is valid.
+            print_url (bool): Flag to enable or disable printing of the request URL.
+        """
         self.base_url = base_url
         self.retry_count = retry_count
         self.retry_delay = retry_delay
@@ -35,20 +62,26 @@ class SdwisAPI:
             self.session = requests.Session()
         self.multi_threads_session = requests.Session()
 
-    def get_request(
-            self, url, endpoint_parameters=(), params=None, only_count=False,
-            headers=None, use_cache=True, multi_mode=False, **kwargs
-    ):
+    def get_request(self, url, endpoint_parameters=(), params=None, only_count=False,
+                    headers=None, use_cache=True, multi_mode=False, **kwargs):
         """
-        :param url:
-        :param endpoint_parameters:
-        :param params:
-        :param only_count:
-        :param headers:
-        :param use_cache:
-        :param multi_mode:
-        :param kwargs:
-        :return:
+        Sends a GET request to the specified URL with optional parameters.
+
+        Parameters:
+            url (str): The URL to send the request to.
+            endpoint_parameters (tuple): Additional parameters for the endpoint.
+            params (dict): Query parameters for the request.
+            only_count (bool): Flag to return only count in the response.
+            headers (dict): HTTP headers for the request.
+            use_cache (bool): Flag to use cache for the request.
+            multi_mode (bool): Flag to enable or disable multi-threading mode.
+            kwargs: Additional keyword arguments.
+
+        Returns:
+            dict or int: Parsed JSON response from the API / Or number
+
+        Raises:
+            SdwisHTTPException: If the HTTP request fails or returns an error.
         """
         if only_count:
             url = f"{url}/COUNT"

@@ -4,8 +4,7 @@ import re
 
 import tabulate
 
-from sdwis_drink_water.errors import SdwisHTTPException, SdwisQueryParamsException, SdwisResultDataParserException
-from sdwis_drink_water.utils import print_tabulate_result_with_divider
+from sdwis_drink_water.errors import SdwisHTTPException, SdwisResultDataParserException
 
 
 class Parser:

@@ -3,20 +3,17 @@
 Python wrappers for the  [Envirofacts Data Service API](https://www.epa.gov/enviro/envirofacts-data-service-api) provided by the U.S. Environmental Protection Agency (EPA), with a focus on the Safe Drinking Water Information System (SDWIS).
 
 
-[//]: # ([![PyPI Version]&#40;https://img.shields.io/pypi/v/sdwis-drink-water?label=PyPI&#41;]&#40;https://test.pypi.org/project/sdwis-drink-water/&#41;)
-[![TestPyPI Version](https://img.shields.io/badge/TestPyPI-v1.0.0-blue)](https://test.pypi.org/project/sdwis-drink-water/)
+[![PyPI Version](https://img.shields.io/pypi/v/sdwis-drink-water?label=PyPI)](https://pypi.org/project/sdwis-drink-water/)
+[//]: # ([![TestPyPI Version]&#40;https://img.shields.io/badge/TestPyPI-v1.0.0-blue&#41;]&#40;https://test.pypi.org/project/sdwis-drink-water/&#41;)
 [![Documentation Status](https://readthedocs.org/projects/sdwis-drink-water/badge/?version=latest)](https://sdwis-drink-water.readthedocs.io/en/latest/example.html)
 
 Installation
 ------------
 
-The easiest way to install the latest version from Test PyPI is by using
+The easiest way to install the latest version from PyPI is by using
 [pip](https://pip.pypa.io/):
 
-    pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple sdwis_drink_water
-
-[//]: # (The easiest way to install the latest version from Test PyPI is by using)
-[//]: # (  pip install sdwis-drink-water)
+    pip install sdwis_drink_water
 
 You can also use Git to clone the repository from GitHub to install the latest
 development version:
@@ -189,6 +186,42 @@ is_grant_eligible_ind_and_is_wholesaler_ind.show()
 # export data to csv
 is_grant_eligible_ind_and_is_wholesaler_ind.export_data("./output_files/water_system_epa_1_filtered_result.csv", format_type="csv")
 ```
+
+
+### How many drinking water test samples have lead levels that meet the old regulations but not the new ones?
+```python
+# BACKGROUND: EPA is proposing to lower the lead action level from 15 µg/L (0.015mg/L) to 10 µg/L (0.01mg/L)
+# We want to look at the database and see those samples that match the original rule, but not the new one.
+from sdwis_drink_water import LcrSampleResult
+
+lcr_sample_result_api = LcrSampleResult(print_url=True)
+
+# fetch first data from LcrSampleResult table
+lcr_sample_result_api.get_table_first_data()
+# Setting "multi_threads=True" will use multithreading to speed up the fetching of data
+lcr_sample_result_api.get_table_columns_description(multi_threads=True)
+
+# Samples exceeding the original rule
+pb90_exceed_original_rule = lcr_sample_result_api.get_lcr_sample_result_data_by_conditions("contaminant_code=PB90",
+                                                                                           "result_sign_code==",
+                                                                                           "sample_measure>0.015")
+# Samples exceeding the new rule
+pb90_exceed_new_rule = lcr_sample_result_api.get_lcr_sample_result_data_by_conditions("contaminant_code=PB90",
+                                                                                      "result_sign_code==",
+                                                                                      "sample_measure>0.01")
+# fetch their intersection, union, difference
+# here intersection is the number of pb90_exceed_original_rule
+print(pb90_exceed_original_rule.intersect_with(pb90_exceed_new_rule).count())
+# here union is the number of pb90_exceed_new_rule
+print(pb90_exceed_original_rule.merge_with(pb90_exceed_new_rule).count())
+# get difference. These samples comply with the original rule, but not the new rule. Additional attention is required
+print(pb90_exceed_new_rule.difference_with(pb90_exceed_original_rule).count())
+
+result_we_need = pb90_exceed_new_rule.difference_with(pb90_exceed_original_rule)
+result_we_need.export_data("./output_files/Sample sets for additional attention in the new regulation of Lead.xlsx",
+                           format_type="xlsx")
+```
+
 ### Quickly access to full database, then export to a xlsx file
 This package can serves as an efficient crawler tool, designed to swiftly scrape the entire contents of a data table and export them to an XLSX file. It adeptly navigates the API's restriction of returning a maximum of 10,000 items per query by intelligently segmenting the query into multiple smaller queries. Additionally, the tool boasts a multi-threaded mode, activated by setting the parameter "multi_threads=True". This mode leverages the power of parallel processing to significantly accelerate the rate at which query results are retrieved, ensuring a more efficient and time-effective data collection process.
 
@@ -203,14 +236,18 @@ Fetching Data by multi_threads_mode:   100%|██████████| 25/2
 Data is successfully exported to all_lcr_samples.xlsx!
 """
 ```
+
 ## Examples
 
-I have added a repository with examples in a python notebook to better see the
-usage of the library: https://github.com/RomelTorres/av_example
+We have provided various examples to help you understand and use our package effectively:
 
+- **Folder Examples**: 
+  - Visit the [`examples` folder](./examples/) for standalone scripts and usage demonstrations.
+  
+- **Jupyter Notebook Examples**: 
+  - For interactive and detailed usage examples, check out the Jupyter notebooks in the [`notebooks` folder](./notebooks/).
 
-## Tests
-
+These examples cover a range of scenarios and use cases, demonstrating the functionality and features of our package in practical settings.
 
 ## Documentation
 The code documentation can be found at https://.readthedocs.io/en/latest/
@@ -219,16 +256,15 @@ The code documentation can be found at https://.readthedocs.io/en/latest/
 Contributing is always welcome. Just contact us on how best you can contribute, add an issue, or make a PR. 
 
 ## License
-
 `sdwis_drink_water` was created by norahtao. It is licensed under the terms of the MIT license.
-
-## Credits
-
-`sdwis_drink_water` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
 
 ## TODOs
 * Add more features as required
 
 ## Contact
 You can reach/follow me on any of the following platforms:
+* Author: norahtao
 * Email: rt29112@columbia.edu
+
+## Credits
+`sdwis_drink_water` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).

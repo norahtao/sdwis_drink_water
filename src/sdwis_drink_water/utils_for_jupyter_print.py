@@ -31,5 +31,6 @@ def print_result_data(result_data):
 
 def print_columns(column_names):
     headers = [f"COLUMN_{i + 1}" for i in range(len(column_names))]
-    tabulate_result = tabulate([column_names], headers=headers, numalign="right", stralign="right", tablefmt="simple_grid")
+    tabulate_result = tabulate([column_names], headers=headers, numalign="right", stralign="right",
+                               tablefmt="simple_grid")
     tabulate_for_jupyter(tabulate_result)

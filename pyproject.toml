@@ -22,6 +22,7 @@ setuptools = "^69.0.2"
 myst-nb = "^1.0.0"
 sphinx-autoapi = "^3.0.0"
 sphinx-rtd-theme = "^2.0.0"
+pytest-cov = "^4.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

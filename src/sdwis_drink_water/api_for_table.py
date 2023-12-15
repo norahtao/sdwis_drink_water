@@ -5,7 +5,7 @@ from tqdm import tqdm
 import logging
 import tabulate
 
-from sdwis_drink_water import SdwisAPI
+from sdwis_drink_water.api import SdwisAPI
 from sdwis_drink_water.configs import TABLES_LIST, EPA_REGION_ID, MAX_QUERY_DATA_LIMIT_A_TIME
 from sdwis_drink_water.data_praser import ResultDataParser
 from sdwis_drink_water.errors import SdwisQueryParamsException
@@ -16,10 +16,36 @@ log = logging.getLogger(__name__)
 
 
 class SdwisTable:
+    """
+    A class to interact with the SDWIS Table API.
+
+    Attributes:
+        sdwis_api (SdwisAPI): Instance of the SdwisAPI class.
+    """
+
     def __init__(self, enable_cache=True, print_url=False):
+        """
+        Initializes the SdwisTable class.
+
+        Parameters:
+            enable_cache (bool): Flag to enable caching of requests.
+            print_url (bool): Flag to enable printing the request URL.
+        """
+        self.table_name = "table_name"
         self.sdwis_api = SdwisAPI(enable_cache=enable_cache, print_url=print_url)
 
     def _get_data_by_request(self, query_url, print_to_console=False, multi_threads=False):
+        """
+        Internal method to get data by sending a request to the specified URL.
+
+        Parameters:
+            query_url (str): The URL to send the request to.
+            print_to_console (bool): Flag to print the result to console.
+            multi_threads (bool): Flag to enable multi-threading for the request.
+
+        Returns:
+            list: The query result as a list of dictionaries.
+        """
         query_result = self.sdwis_api.get_request(query_url, multi_mode=multi_threads)
         if print_to_console:
             headers = query_result[0].keys()
@@ -31,6 +57,16 @@ class SdwisTable:
         return query_result
 
     def _get_result_data_by_request(self, query_url, print_to_console=False):
+        """
+        Internal method to get data by sending a request to the specified URL.
+
+        Parameters:
+            query_url (str): The URL to send the request to.
+            print_to_console (bool): Flag to print the result to console.
+
+        Returns:
+            ResultDataParser: The query result as a list of dictionaries.
+        """
         query_result = self.sdwis_api.get_request(query_url)
         if print_to_console:
             headers = query_result[0].keys()
@@ -41,13 +77,16 @@ class SdwisTable:
 
     def get_all_table_names(self, print_to_console=True):
         """
+        Retrieves all table names from the SDWIS database.
 
-        :param print_to_console:
-        :param kwargs:
-        :return:
+        Parameters:
+            print_to_console (bool): Flag to print the table names to console.
+
+        Returns:
+            list: A list of all table names.
         """
         if print_to_console:
-            header = ["table_name"]
+            header = [self.table_name]
             tabulate_result = tabulate.tabulate([[i] for i in TABLES_LIST], headers=header)
             print_tabulate_result_with_divider(tabulate_result)
             return TABLES_LIST
@@ -55,6 +94,15 @@ class SdwisTable:
             return TABLES_LIST
 
     def get_all_table_names_and_descriptions(self, print_to_console=True):
+        """
+        Retrieves all table names and their descriptions from the SDWIS database.
+
+        Parameters:
+            print_to_console (bool): Flag to print the table names and descriptions to console.
+
+        Returns:
+            list or dict: A list of table names and descriptions or a dictionary if not printed.
+        """
         table_descriptions = []
         for table_name in tqdm(TABLES_LIST, desc='Fetching table descriptions from SDWIS Official Website'):
             description = get_table_description(table_name, session=self.sdwis_api.multi_threads_session)
@@ -70,6 +118,16 @@ class SdwisTable:
             return dict(zip(TABLES_LIST, table_descriptions))
 
     def get_table_column_name_by_table_name(self, table_name="", print_to_console=True):
+        """
+        Retrieves column names for a specified table.
+
+        Parameters:
+            table_name (str): Name of the table.
+            print_to_console (bool): Flag to print the column names to console.
+
+        Returns:
+            list: A list of column names for the specified table.
+        """
         first_data = self.get_table_first_data_by_table_name(table_name=table_name, print_to_console=False)
         if print_to_console:
             column_names = list(first_data.get_all_keys())
@@ -80,6 +138,17 @@ class SdwisTable:
         return first_data.get_all_keys()
 
     def get_columns_description_by_table_name(self, table_name="", print_to_console=True, multi_threads=False):
+        """
+        Retrieves descriptions for all columns of a specified table.
+
+        Parameters:
+            table_name (str): Name of the table.
+            print_to_console (bool): Flag to print column descriptions to console.
+            multi_threads (bool): Flag to enable multi threads requests.
+
+        Returns:
+            dict: A dictionary mapping column names to their descriptions.
+        """
         first_data = self.get_table_first_data_by_table_name(table_name=table_name, print_to_console=False)
         column_names = list(first_data.get_all_keys())
         column_descriptions = []
@@ -90,7 +159,8 @@ class SdwisTable:
                 pbar.update(1)
 
             pbar = tqdm(total=len(column_names),
-                        desc=f"Fetching column descriptions for {table_name} from SDWIS Official Website by multi_threads_mode")
+                        desc=f"Fetching column descriptions for {table_name}"
+                             f" from SDWIS Official Website by multi_threads_mode")
             threads = []
             for column_name in column_names:
                 thread = threading.Thread(target=thread_task, args=(column_name,))
@@ -118,13 +188,44 @@ class SdwisTable:
         return dict(zip(column_names, column_descriptions))
 
     def get_table_data_number(self, table_name=""):
+        """
+        Retrieves the number of records in a specified table.
+
+        Parameters:
+            table_name (str): Name of the table.
+
+        Returns:
+            int: The total number of records in the table.
+        """
         total_data_number = self.get_data_by_conditions(table_name=table_name, print_to_console=False, only_count=True)
         return total_data_number
 
     def get_table_first_data_by_table_name(self, table_name="", print_to_console=True):
+        """
+        Retrieves the first record of a specified table.
+
+        Parameters:
+            table_name (str): Name of the table.
+            print_to_console (bool): Flag to print the first record to console.
+
+        Returns:
+            dict or ResultDataParser: The first record of the table.
+        """
         return self.get_table_first_n_data_by_table_name(table_name=table_name, print_to_console=print_to_console, n=1)
 
     def get_table_first_n_data_by_table_name(self, table_name="", n=0, print_to_console=True, multi_threads=False):
+        """
+        Retrieves the first 'n' records of a specified table.
+
+        Parameters:
+            table_name (str): Name of the table.
+            n (int): Number of records to retrieve.
+            print_to_console (bool): Flag to print the records to console.
+            multi_threads (bool): Flag to enable multi-threading.
+
+        Returns:
+            list or ResultDataParser: A list of the first 'n' records from the table.
+        """
         # Handle requests exceeding the maximum limit, should divide to several request
         if n > MAX_QUERY_DATA_LIMIT_A_TIME:
             query_result = []
@@ -132,7 +233,8 @@ class SdwisTable:
             total_data = self.get_data_by_conditions(table_name=table_name, print_to_console=False, only_count=True)
             if n >= total_data:
                 print(
-                    f"The data number in the database provided by the API is {total_data}. Your request number exceeds this limit, please note.")
+                    f"The data number in the database provided by the API is {total_data}."
+                    f" Your request number exceeds this limit, please note.")
                 n = total_data - 1
 
             # Calculate the number of full batches and the remainder for the last batch
@@ -149,12 +251,12 @@ class SdwisTable:
                 end = n - 1
                 batches.append([start, end])
             if multi_threads:
-                def thread_task(start_row, end_row):
-                    query_url = f"{self.sdwis_api.base_url}/{table_name}/rows/{start_row}:{end_row}"
-                    partial_query_result = self._get_data_by_request(query_url,
-                                                                     print_to_console=print_to_console,
-                                                                     multi_threads=True)
-                    query_result.extend(partial_query_result)
+                def thread_task(start_row_, end_row_):
+                    query_url_ = f"{self.sdwis_api.base_url}/{table_name}/rows/{start_row_}:{end_row_}"
+                    partial_query_result_ = self._get_data_by_request(query_url_,
+                                                                      print_to_console=print_to_console,
+                                                                      multi_threads=True)
+                    query_result.extend(partial_query_result_)
 
                 pbar = tqdm(total=len(batches),
                             desc=f"Fetching Data by multi_threads_mode")
@@ -190,15 +292,18 @@ class SdwisTable:
     def get_data_by_conditions(self, table_name="", condition1="", condition2="", condition3="", print_to_console=True,
                                only_count=False):
         """
-        condition_handle is combined with column operation
-        :param table_name:
-        :param condition1:
-        :param condition2:
-        :param condition3:
-        :param print_to_console:
-        :param only_count:
-        :param kwargs:
-        :return:
+        Retrieves data from a table based on specified conditions.
+
+        Parameters:
+            table_name (str): Name of the table.
+            condition1(str): Conditions for data retrieval.
+            condition2(str): Conditions for data retrieval.
+            condition3(str): Conditions for data retrieval.
+            print_to_console (bool): Flag to print the results to console.
+            only_count (bool): Flag to retrieve only the count of matching records.
+
+        Returns:
+            list or int: List of matching records, or count of records if only_count is True.
         """
         if table_name == "":
             raise SdwisQueryParamsException("table name can't not be empty")
@@ -228,12 +333,15 @@ class SdwisTable:
 
     def summarize_data_by_epa_region(self, table_name="", print_to_console=True, multi_threads=False):
         """
-        :param table_name:
-        :param print_to_console:
-        :param only_count:
-        :param multi_threads:
-        :param kwargs:
-        :return:
+        Summarizes data by EPA region for a specified table.
+
+        Parameters:
+            table_name (str): Name of the table.
+            print_to_console (bool): Flag to print summary to console.
+            multi_threads (bool): Flag to enable multi-threading.
+
+        Returns:
+            list: A list containing the data summary by EPA region.
         """
         _is_table_has_epa_region(table_name)
         data_number_list = []
@@ -262,7 +370,8 @@ class SdwisTable:
             pbar.close()
         else:
             for epa_region_id in tqdm(EPA_REGION_ID,
-                                      desc=F"Fetching the total amount of data by EPA region from the \"{table_name}\" table"):
+                                      desc=F"Fetching the total amount of data by EPA region from the \"{table_name}\" "
+                                           F"table"):
                 data_number = self.get_data_by_epa_region(table_name=table_name, epa_region=epa_region_id,
                                                           only_count=True, print_to_console=False)
                 data_number_list.append(data_number)
@@ -279,14 +388,17 @@ class SdwisTable:
     def get_data_by_epa_region(self, table_name="", epa_region=1, print_to_console=True, only_count=False,
                                multi_mode=False):
         """
+        Retrieves data from a table filtered by a specific EPA region.
         SAMPLE URL: https://data.epa.gov/efservice/LCR_SAMPLE/EPA_REGION/=/01/JSON
-        :param multi_mode:
-        :param table_name:
-        :param only_count:
-        :param epa_region:
-        :param print_to_console:
-        :param kwargs:
-        :return:
+        Parameters:
+            table_name (str): Name of the table.
+            epa_region (int): EPA region number.
+            print_to_console (bool): Flag to print the results to console.
+            only_count (bool): Flag to retrieve only the count of records.
+            multi_mode (bool): Flag to enable multi-threading.
+
+        Returns:
+            list or int: List of records or count of records if only_count is True.
         """
         _is_table_has_epa_region(table_name)
         _is_epa_region_param_valid(epa_region)
