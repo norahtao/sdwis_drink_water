@@ -94,11 +94,11 @@
 <h1>Example2: Working with specific Datatable (use <strong><code class="docutils literal notranslate"><span class="pre">&quot;WaterSystem&quot;</span></code></strong> as example)<a class="headerlink" href="#example2-working-with-specific-datatable-use-watersystem-as-example" title="Link to this heading"></a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sdwis_drink_water.models</span> <span class="kn">import</span> <span class="n">WaterSystem</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sdwis_drink_water</span>
 
 <span class="c1"># Due to the width limitation, I wrote some functions for outputting some results using an interactive scrollbar</span>
 
-<span class="n">water_system_api</span> <span class="o">=</span> <span class="n">WaterSystem</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">water_system_api</span> <span class="o">=</span> <span class="n">sdwis_drink_water</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">WaterSystem</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -113,16 +113,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">water_system_columns</span> <span class="o">=</span> <span class="n">water_system_api</span><span class="o">.</span><span class="n">get_table_column_name</span><span class="p">(</span><span class="n">print_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sdwis_drink_water</span><span class="o">.</span><span class="n">utils_for_jupyter_print</span><span class="o">.</span><span class="n">print_columns</span><span class="p">(</span><span class="n">water_system_columns</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sdwis_drink_water&#39; is not defined
-</pre></div>
-</div>
-</div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "89117eedb6534f96b6580752cd1beeb4"}</script></div>
 </div>
 </section>
 <section id="fetch-table-column-names-with-descriptions">
@@ -135,10 +126,82 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode: 100%|██████████| 45/45 [00:05&lt;00:00,  8.30it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:   0%|                                     | 0/45 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "65d902dbd4624f789d36d9049faaa062"}</script></div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:   2%|▋                            | 1/45 [00:02&lt;01:36,  2.20s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:   7%|█▉                           | 3/45 [00:02&lt;00:25,  1.63it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  11%|███▏                         | 5/45 [00:02&lt;00:13,  3.00it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  16%|████▌                        | 7/45 [00:02&lt;00:08,  4.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  20%|█████▊                       | 9/45 [00:02&lt;00:05,  6.09it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  24%|██████▊                     | 11/45 [00:02&lt;00:04,  7.26it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  29%|████████                    | 13/45 [00:03&lt;00:03,  9.02it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  33%|█████████▎                  | 15/45 [00:03&lt;00:03,  9.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  40%|███████████▏                | 18/45 [00:03&lt;00:02, 11.42it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  44%|████████████▍               | 20/45 [00:03&lt;00:01, 12.90it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  49%|█████████████▋              | 22/45 [00:03&lt;00:01, 11.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  53%|██████████████▉             | 24/45 [00:03&lt;00:01, 10.92it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  60%|████████████████▊           | 27/45 [00:04&lt;00:01, 12.81it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  64%|██████████████████          | 29/45 [00:04&lt;00:01, 13.61it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  69%|███████████████████▎        | 31/45 [00:04&lt;00:01, 12.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  73%|████████████████████▌       | 33/45 [00:04&lt;00:01, 11.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  78%|█████████████████████▊      | 35/45 [00:04&lt;00:00, 11.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  82%|███████████████████████     | 37/45 [00:04&lt;00:00, 12.53it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  87%|████████████████████████▎   | 39/45 [00:05&lt;00:00, 11.47it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  91%|█████████████████████████▌  | 41/45 [00:05&lt;00:00, 10.92it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode:  96%|██████████████████████████▊ | 43/45 [00:05&lt;00:00, 12.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode: 100%|████████████████████████████| 45/45 [00:05&lt;00:00, 11.92it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching column descriptions for WATER_SYSTEM from SDWIS Official Website by multi_threads_mode: 100%|████████████████████████████| 45/45 [00:05&lt;00:00,  7.98it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "811c8e1a315a4827b7a3dbbec10b8b9d"}</script></div>
 </div>
 </section>
 <section id="fetch-first-data-from-water-system-table">
@@ -153,7 +216,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b5f61fa899c94a229f9daca8df341064"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "454ca6ce37a34d1db908b554df357619"}</script></div>
 </div>
 </section>
 <section id="fetch-first-n-data-from-water-system-table">
@@ -167,7 +230,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "581d5f5182a548dd967628875ab034f3"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3d9a8997a41a442884036ed442bcd50c"}</script></div>
 </div>
 <section id="we-can-use-this-method-to-quickly-access-the-full-datasheet-then-export-to-a-file">
 <h3>We can use this method to quickly access the full datasheet, then export to a file<a class="headerlink" href="#we-can-use-this-method-to-quickly-access-the-full-datasheet-then-export-to-a-file" title="Link to this heading"></a></h3>
@@ -186,44 +249,163 @@
 The data number in the database provided by the API is 428808. Your request number exceeds this limit, please note.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching Data by multi_threads_mode:   0%|          | 0/43 [00:00&lt;?, ?it/s]
-  0%|          | 0/43 [00:00&lt;?, ?it/s]
- 28%|██▊       | 12/43 [00:02&lt;00:05,  5.97it/s]
- 30%|███       | 13/43 [00:04&lt;00:10,  2.75it/s]
- 33%|███▎      | 14/43 [00:06&lt;00:16,  1.73it/s]
- 35%|███▍      | 15/43 [00:08&lt;00:22,  1.24it/s]
- 37%|███▋      | 16/43 [00:10&lt;00:27,  1.03s/it]
- 40%|███▉      | 17/43 [00:12&lt;00:32,  1.23s/it]
- 42%|████▏     | 18/43 [00:14&lt;00:35,  1.41s/it]
- 44%|████▍     | 19/43 [00:16&lt;00:37,  1.56s/it]
- 47%|████▋     | 20/43 [00:18&lt;00:38,  1.68s/it]
- 49%|████▉     | 21/43 [00:20&lt;00:38,  1.77s/it]
- 51%|█████     | 22/43 [00:22&lt;00:38,  1.83s/it]
- 53%|█████▎    | 23/43 [00:24&lt;00:37,  1.88s/it]
- 56%|█████▌    | 24/43 [00:26&lt;00:36,  1.93s/it]
- 58%|█████▊    | 25/43 [00:28&lt;00:35,  1.95s/it]
- 60%|██████    | 26/43 [00:30&lt;00:33,  1.97s/it]
- 63%|██████▎   | 27/43 [00:32&lt;00:31,  1.98s/it]
- 65%|██████▌   | 28/43 [00:34&lt;00:29,  1.99s/it]
- 67%|██████▋   | 29/43 [00:36&lt;00:27,  1.99s/it]
- 70%|██████▉   | 30/43 [00:38&lt;00:25,  2.00s/it]
- 72%|███████▏  | 31/43 [00:40&lt;00:24,  2.00s/it]
- 74%|███████▍  | 32/43 [00:42&lt;00:22,  2.01s/it]
- 77%|███████▋  | 33/43 [00:44&lt;00:20,  2.01s/it]
- 79%|███████▉  | 34/43 [00:46&lt;00:18,  2.01s/it]
- 81%|████████▏ | 35/43 [00:48&lt;00:16,  2.01s/it]
- 84%|████████▎ | 36/43 [00:50&lt;00:14,  2.01s/it]
- 86%|████████▌ | 37/43 [00:52&lt;00:12,  2.01s/it]
- 88%|████████▊ | 38/43 [00:54&lt;00:10,  2.01s/it]
- 91%|█████████ | 39/43 [00:56&lt;00:08,  2.01s/it]
- 93%|█████████▎| 40/43 [00:58&lt;00:06,  2.01s/it]
- 95%|█████████▌| 41/43 [01:00&lt;00:04,  2.01s/it]
- 98%|█████████▊| 42/43 [01:02&lt;00:02,  2.01s/it]
-100%|██████████| 43/43 [01:16&lt;00:00,  1.78s/it]
-Fetching Data by multi_threads_mode:   0%|          | 0/43 [01:16&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching Data by multi_threads_mode:   0%|                                                                                                 | 0/43 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data is successfully exported to ./output_files/all_water_system.xlsx!
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                                                                      | 0/43 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|██████████████████████████████████▉                                                                                          | 12/43 [00:02&lt;00:05,  5.95it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|█████████████████████████████████████▊                                                                                       | 13/43 [00:04&lt;00:10,  2.75it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|████████████████████████████████████████▋                                                                                    | 14/43 [00:06&lt;00:16,  1.72it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|███████████████████████████████████████████▌                                                                                 | 15/43 [00:08&lt;00:22,  1.24it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|██████████████████████████████████████████████▌                                                                              | 16/43 [00:10&lt;00:27,  1.03s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|█████████████████████████████████████████████████▍                                                                           | 17/43 [00:12&lt;00:32,  1.23s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|████████████████████████████████████████████████████▎                                                                        | 18/43 [00:14&lt;00:35,  1.41s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|███████████████████████████████████████████████████████▏                                                                     | 19/43 [00:16&lt;00:37,  1.56s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 47%|██████████████████████████████████████████████████████████▏                                                                  | 20/43 [00:18&lt;00:38,  1.68s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|█████████████████████████████████████████████████████████████                                                                | 21/43 [00:20&lt;00:38,  1.77s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|███████████████████████████████████████████████████████████████▉                                                             | 22/43 [00:22&lt;00:38,  1.84s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 53%|██████████████████████████████████████████████████████████████████▊                                                          | 23/43 [00:24&lt;00:37,  1.89s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|█████████████████████████████████████████████████████████████████████▊                                                       | 24/43 [00:26&lt;00:36,  1.92s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|█████████████████████████████████████████████████████████████████████▊                                                       | 24/43 [00:27&lt;00:22,  1.16s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">water_system_data_number</span> <span class="o">=</span> <span class="n">water_system_api</span><span class="o">.</span><span class="n">get_table_data_number</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">all_water_system</span> <span class="o">=</span> <span class="n">water_system_api</span><span class="o">.</span><span class="n">get_table_first_n_data</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">water_system_data_number</span><span class="p">,</span> <span class="n">multi_threads</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># You can also just set n to a big number</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># all_water_system = water_system_api.get_table_first_n_data(n=99999999, multi_threads=True, print_to_console=False)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">all_water_system</span><span class="o">.</span><span class="n">export_data</span><span class="p">(</span><span class="s2">&quot;./output_files/all_water_system.xlsx&quot;</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;xlsx&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/sdwis_drink_water/models/water_system.py:25,</span> in <span class="ni">WaterSystem.get_table_first_n_data</span><span class="nt">(self, n, multi_threads, print_to_console)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">get_table_first_n_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">multi_threads</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">25</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span><span class="o">.</span><span class="n">get_table_first_n_data_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>                                                                  <span class="n">multi_threads</span><span class="o">=</span><span class="n">multi_threads</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="n">print_to_console</span><span class="p">)</span>
+
+<span class="nn">File ~/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/sdwis_drink_water/api_for_table.py:270,</span> in <span class="ni">SdwisTable.get_table_first_n_data_by_table_name</span><span class="nt">(self, table_name, n, print_to_console, multi_threads)</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span> <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">270</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span> <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batches</span><span class="p">):</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
