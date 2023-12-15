@@ -7,10 +7,10 @@ __version__ = '1.1.0'
 __author__ = ''
 __license__ = 'MIT'
 
-from sdwis_drink_water.api import SdwisAPI
-from sdwis_drink_water.api_for_table import SdwisTable
-from sdwis_drink_water.data_praser import ResultDataParser
-from sdwis_drink_water.models import EnforcementAction, GeographicArea, LcrSample, LcrSampleResult, \
+from api import SdwisAPI
+from api_for_table import SdwisTable
+from data_praser import ResultDataParser
+from models import EnforcementAction, GeographicArea, LcrSample, LcrSampleResult, \
     ServiceArea, Treatment, Violation, ViolationEnfAssoc, WaterSystem, WaterSystemFacility
 
 # Global API

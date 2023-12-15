@@ -1,5 +1,5 @@
 
-from sdwis_drink_water import SdwisTable
+from sdwis_drink_water.api_for_table import SdwisTable
 
 class WaterSystem:
     def __init__(self, print_url=False):
