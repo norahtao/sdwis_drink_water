@@ -216,6 +216,14 @@ The code documentation can be found at https://.readthedocs.io/en/latest/
 ## Contributing
 Contributing is always welcome. Just contact us on how best you can contribute, add an issue, or make a PR. 
 
+## License
+
+`sdwis_drink_water` was created by norahtao. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`sdwis_drink_water` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
 ## TODOs
 * Add more features as required
 
