@@ -6,7 +6,7 @@
   <title>sdwis_drink_water.models.service_area &mdash; sdwis_drink_water  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
 
   
@@ -79,48 +79,48 @@
 <span class="kn">from</span> <span class="nn">sdwis_drink_water</span> <span class="kn">import</span> <span class="n">SdwisTable</span>
 
 <div class="viewcode-block" id="ServiceArea">
-<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.ServiceArea">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.models.service_area.ServiceArea">[docs]</a>
 <span class="k">class</span> <span class="nc">ServiceArea</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">print_url</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span> <span class="o">=</span> <span class="n">SdwisTable</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="n">print_url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span> <span class="o">=</span> <span class="s2">&quot;SERVICE_AREA&quot;</span>
     
 <div class="viewcode-block" id="ServiceArea.get_table_column_name">
-<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.ServiceArea.get_table_column_name">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.models.service_area.ServiceArea.get_table_column_name">[docs]</a>
     <span class="k">def</span> <span class="nf">get_table_column_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span><span class="o">.</span><span class="n">get_table_column_name_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span>
                                                                     <span class="n">print_to_console</span><span class="o">=</span><span class="n">print_to_console</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="ServiceArea.get_table_columns_description">
-<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.ServiceArea.get_table_columns_description">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.models.service_area.ServiceArea.get_table_columns_description">[docs]</a>
     <span class="k">def</span> <span class="nf">get_table_columns_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">multi_threads</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span><span class="o">.</span><span class="n">get_columns_description_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span>
                                                                     <span class="n">print_to_console</span><span class="o">=</span><span class="n">print_to_console</span><span class="p">,</span> 
                                                                     <span class="n">multi_threads</span><span class="o">=</span><span class="n">multi_threads</span><span class="p">)</span>                                                       </div>
 
 <div class="viewcode-block" id="ServiceArea.get_table_data_number">
-<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.ServiceArea.get_table_data_number">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.models.service_area.ServiceArea.get_table_data_number">[docs]</a>
     <span class="k">def</span> <span class="nf">get_table_data_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span><span class="o">.</span><span class="n">get_table_data_number</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">)</span></div>
 
         
 <div class="viewcode-block" id="ServiceArea.get_table_first_data">
-<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.ServiceArea.get_table_first_data">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.models.service_area.ServiceArea.get_table_first_data">[docs]</a>
     <span class="k">def</span> <span class="nf">get_table_first_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span><span class="o">.</span><span class="n">get_table_first_data_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span>
                                                                    <span class="n">print_to_console</span><span class="o">=</span><span class="n">print_to_console</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ServiceArea.get_table_first_n_data">
-<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.ServiceArea.get_table_first_n_data">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.models.service_area.ServiceArea.get_table_first_n_data">[docs]</a>
     <span class="k">def</span> <span class="nf">get_table_first_n_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">multi_threads</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span><span class="o">.</span><span class="n">get_table_first_n_data_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
                                                                      <span class="n">multi_threads</span><span class="o">=</span><span class="n">multi_threads</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="n">print_to_console</span><span class="p">)</span>                                                              </div>
 
 
 <div class="viewcode-block" id="ServiceArea.get_service_area_data_by_conditions">
-<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.ServiceArea.get_service_area_data_by_conditions">[docs]</a>
+<a class="viewcode-back" href="../../../autoapi/sdwis_drink_water/models/service_area/index.html#sdwis_drink_water.models.service_area.ServiceArea.get_service_area_data_by_conditions">[docs]</a>
     <span class="k">def</span> <span class="nf">get_service_area_data_by_conditions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition1</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">condition2</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">condition3</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                           <span class="n">only_count</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdwis_table</span><span class="o">.</span><span class="n">get_data_by_conditions</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">TABLE_NAME</span><span class="p">,</span> <span class="n">condition1</span><span class="o">=</span><span class="n">condition1</span><span class="p">,</span>
