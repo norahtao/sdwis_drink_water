@@ -1,0 +1,21 @@
+API Reference
+=============
+
+This page contains auto-generated API reference documentation [#f1]_.
+
+.. toctree::
+   :titlesonly:
+
+   /autoapi/sdwis_drink_water/index
+   /autoapi/enforcement_action/index
+   /autoapi/treatment/index
+   /autoapi/violation/index
+   /autoapi/geographic_area/index
+   /autoapi/violation_enf_assoc/index
+   /autoapi/water_system/index
+   /autoapi/lcr_sample/index
+   /autoapi/water_system_facility/index
+   /autoapi/lcr_sample_result/index
+   /autoapi/service_area/index
+
+.. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

@@ -1,0 +1,23 @@
+:py:mod:`sdwis_drink_water.configs`
+===================================
+
+.. py:module:: sdwis_drink_water.configs
+
+
+Module Contents
+---------------
+
+.. py:data:: TABLES_LIST
+   :value: ['ENFORCEMENT_ACTION', 'GEOGRAPHIC_AREA', 'LCR_SAMPLE_RESULT', 'LCR_SAMPLE', 'SERVICE_AREA',...
+
+   
+
+.. py:data:: EPA_REGION_ID
+
+   
+
+.. py:data:: MAX_QUERY_DATA_LIMIT_A_TIME
+   :value: 10000
+
+   
+

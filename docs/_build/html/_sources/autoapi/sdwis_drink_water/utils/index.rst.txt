@@ -1,0 +1,85 @@
+:py:mod:`sdwis_drink_water.utils`
+=================================
+
+.. py:module:: sdwis_drink_water.utils
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.utils.process_table_column_condition
+   sdwis_drink_water.utils.extract_description_from_description_page
+   sdwis_drink_water.utils.extract_description_from_table_description_page
+   sdwis_drink_water.utils.extract_description_from_column_description_page
+   sdwis_drink_water.utils.get_table_description
+   sdwis_drink_water.utils.get_column_description
+   sdwis_drink_water.utils.print_tabulate_result_with_divider
+   sdwis_drink_water.utils._is_table_has_epa_region
+   sdwis_drink_water.utils._is_epa_region_param_valid
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.utils.CHECK_API_SITE_REMINDER
+   sdwis_drink_water.utils.TABLE_COLUMN_INCLUDE_EPA_REGION
+   sdwis_drink_water.utils.BASE_TABLE_PAGE_URL
+   sdwis_drink_water.utils.CHECK_TABLE_PAGE_REMINDER
+
+
+.. py:data:: CHECK_API_SITE_REMINDER
+   :value: 'Please check official site for more information: https://www.epa.gov/enviro/sdwis-model#table_names'
+
+   
+
+.. py:data:: TABLE_COLUMN_INCLUDE_EPA_REGION
+   :value: ['GEOGRAPHIC_AREA', 'LCR_SAMPLE_RESULT', 'LCR_SAMPLE', 'WATER_SYSTEM', 'WATER_SYSTEM_FACILITY',...
+
+   
+
+.. py:data:: BASE_TABLE_PAGE_URL
+   :value: 'https://enviro.epa.gov/enviro/ef_metadata_html.ef_metadata_table?p_table_name={}&p_topic=SDWIS'
+
+   
+
+.. py:data:: CHECK_TABLE_PAGE_REMINDER
+   :value: 'Please check table structure for more information: '
+
+   
+
+.. py:function:: process_table_column_condition(condition_handle)
+
+
+.. py:function:: extract_description_from_description_page(html_content, desc_string='Description:')
+
+
+.. py:function:: extract_description_from_table_description_page(html_content)
+
+
+.. py:function:: extract_description_from_column_description_page(html_content)
+
+
+.. py:function:: get_table_description(table_name, session)
+
+
+.. py:function:: get_column_description(column_name, session)
+
+
+.. py:function:: print_tabulate_result_with_divider(tabulate_result)
+
+
+.. py:function:: _is_table_has_epa_region(table_name)
+
+
+.. py:function:: _is_epa_region_param_valid(epa_region)
+
+

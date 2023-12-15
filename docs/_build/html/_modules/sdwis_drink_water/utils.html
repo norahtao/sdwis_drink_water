@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdwis_drink_water.utils &mdash; sdwis_drink_water  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            sdwis_drink_water
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">sdwis_drink_water</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">sdwis_drink_water.utils</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdwis_drink_water.utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="kn">from</span> <span class="nn">sdwis_drink_water.errors</span> <span class="kn">import</span> <span class="n">SdwisQueryParamsException</span>
+
+<span class="n">CHECK_API_SITE_REMINDER</span> <span class="o">=</span> <span class="s2">&quot;Please check official site for more information: https://www.epa.gov/enviro/sdwis-model#table_names&quot;</span>
+
+<span class="n">TABLE_COLUMN_INCLUDE_EPA_REGION</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;GEOGRAPHIC_AREA&quot;</span><span class="p">,</span> <span class="s2">&quot;LCR_SAMPLE_RESULT&quot;</span><span class="p">,</span> <span class="s2">&quot;LCR_SAMPLE&quot;</span><span class="p">,</span> <span class="s2">&quot;WATER_SYSTEM&quot;</span><span class="p">,</span>
+                                   <span class="s2">&quot;WATER_SYSTEM_FACILITY&quot;</span><span class="p">,</span> <span class="s2">&quot;VIOLATION&quot;</span><span class="p">]</span>
+
+<span class="n">BASE_TABLE_PAGE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://enviro.epa.gov/enviro/ef_metadata_html.ef_metadata_table?p_table_name=</span><span class="si">{}</span><span class="s2">&amp;p_topic=SDWIS&quot;</span>
+
+<span class="n">CHECK_TABLE_PAGE_REMINDER</span> <span class="o">=</span> <span class="s2">&quot;Please check table structure for more information: &quot;</span>
+
+
+<span class="c1"># Helper function to process a condition_handle</span>
+<div class="viewcode-block" id="process_table_column_condition">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils.process_table_column_condition">[docs]</a>
+<span class="k">def</span> <span class="nf">process_table_column_condition</span><span class="p">(</span><span class="n">condition_handle</span><span class="p">):</span>
+    <span class="c1"># Split the condition_handle into its components (assumes a string like &#39;column&gt;value&#39;)</span>
+    <span class="c1"># Regular expression to match the condition pattern</span>
+    <span class="k">if</span> <span class="s2">&quot;result_sign_code&quot;</span> <span class="ow">in</span> <span class="n">condition_handle</span><span class="p">:</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;result_sign_code&quot;</span>
+        <span class="n">operator_value</span> <span class="o">=</span> <span class="n">condition_handle</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;result_sign_code&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">operator</span> <span class="o">=</span> <span class="n">operator_value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">operator_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(.*?)(&gt;=|&lt;=|!=|==|=|&gt;|&lt;)(.*)&quot;</span><span class="p">,</span> <span class="n">condition_handle</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Condition string is not in the expected format.&quot;</span><span class="p">)</span>
+
+        <span class="n">column</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">operator</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;condition param must be a string with three parts: column, operator, and value&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="extract_description_from_description_page">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils.extract_description_from_description_page">[docs]</a>
+<span class="k">def</span> <span class="nf">extract_description_from_description_page</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="n">desc_string</span><span class="o">=</span><span class="s1">&#39;Description:&#39;</span><span class="p">):</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">description_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">desc_string</span><span class="p">)</span>
+    <span class="c1"># check to prevent errors</span>
+    <span class="k">if</span> <span class="n">description_tag</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">description_tag</span><span class="o">.</span><span class="n">next_sibling</span><span class="p">:</span>
+            <span class="n">description_text</span> <span class="o">=</span> <span class="n">description_tag</span><span class="o">.</span><span class="n">next_sibling</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">error_text</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s1">&#39;Description tag found, but didn</span><span class="se">\&#39;</span><span class="s1">t find content </span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="s1">&#39;Perhaps Envirofacts have modificated of the Page architecture.</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">CHECK_API_SITE_REMINDER</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">error_text</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">error_text</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s1">&#39;Description tag not found </span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="s1">&#39;Perhaps Envirofacts have modificated of the Page architecture.</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">CHECK_API_SITE_REMINDER</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">error_text</span>
+    <span class="k">return</span> <span class="n">description_text</span></div>
+
+
+
+<div class="viewcode-block" id="extract_description_from_table_description_page">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils.extract_description_from_table_description_page">[docs]</a>
+<span class="k">def</span> <span class="nf">extract_description_from_table_description_page</span><span class="p">(</span><span class="n">html_content</span><span class="p">):</span>
+    <span class="c1"># Find the &#39;Description:&#39; from official site</span>
+    <span class="k">return</span> <span class="n">extract_description_from_description_page</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="n">desc_string</span><span class="o">=</span><span class="s1">&#39;Description:&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="extract_description_from_column_description_page">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils.extract_description_from_column_description_page">[docs]</a>
+<span class="k">def</span> <span class="nf">extract_description_from_column_description_page</span><span class="p">(</span><span class="n">html_content</span><span class="p">):</span>
+    <span class="c1"># Find the &#39;Description: &#39; from official site</span>
+    <span class="k">return</span> <span class="n">extract_description_from_description_page</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="n">desc_string</span><span class="o">=</span><span class="s1">&#39;Description: &#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_table_description">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils.get_table_description">[docs]</a>
+<span class="k">def</span> <span class="nf">get_table_description</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://enviro.epa.gov/enviro/ef_metadata_html.ef_metadata_table?p_table_name=</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&amp;p_topic=SDWIS&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">extract_description_from_table_description_page</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">error_text</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;Page not found </span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="s1">&#39;Perhaps Envirofacts have modificated of the Envirofacts database architecture.</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="s1">&#39;Please check official site for more information: https://www.epa.gov/enviro/sdwis-model#table_names&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">error_text</span></div>
+
+
+
+<div class="viewcode-block" id="get_column_description">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils.get_column_description">[docs]</a>
+<span class="k">def</span> <span class="nf">get_column_description</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://enviro.epa.gov/enviro/EF_METADATA_HTML.sdwis_page?p_column_name=</span><span class="si">{</span><span class="n">column_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">extract_description_from_column_description_page</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">error_text</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;Page not found </span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="s1">&#39;Perhaps Envirofacts have modificated of the Envirofacts database architecture.</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="s1">&#39;Please check official site for more information: https://www.epa.gov/enviro/sdwis-model#table_names&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">error_text</span></div>
+
+
+
+<div class="viewcode-block" id="print_tabulate_result_with_divider">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils.print_tabulate_result_with_divider">[docs]</a>
+<span class="k">def</span> <span class="nf">print_tabulate_result_with_divider</span><span class="p">(</span><span class="n">tabulate_result</span><span class="p">):</span>
+    <span class="n">divider</span> <span class="o">=</span> <span class="s2">&quot;&gt;&gt;&quot;</span> <span class="o">*</span> <span class="mi">50</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">divider</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">tabulate_result</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">divider</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="_is_table_has_epa_region">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils._is_table_has_epa_region">[docs]</a>
+<span class="k">def</span> <span class="nf">_is_table_has_epa_region</span><span class="p">(</span><span class="n">table_name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">table_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">TABLE_COLUMN_INCLUDE_EPA_REGION</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">SdwisQueryParamsException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> doesn&#39;t have </span><span class="se">\&quot;</span><span class="s2">EPA</span><span class="se">\&quot;</span><span class="s2"> column</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+                                        <span class="n">CHECK_TABLE_PAGE_REMINDER</span> <span class="o">+</span> <span class="n">BASE_TABLE_PAGE_URL</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="_is_epa_region_param_valid">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/utils/index.html#sdwis_drink_water.utils._is_epa_region_param_valid">[docs]</a>
+<span class="k">def</span> <span class="nf">_is_epa_region_param_valid</span><span class="p">(</span><span class="n">epa_region</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">epa_region</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">SdwisQueryParamsException</span><span class="p">(</span><span class="s2">&quot;epa_region should be int type&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">epa_region</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">epa_region</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">SdwisQueryParamsException</span><span class="p">(</span><span class="s2">&quot;epa_region should be 1~10&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, norahtao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

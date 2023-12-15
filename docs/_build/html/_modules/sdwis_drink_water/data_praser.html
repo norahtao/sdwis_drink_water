@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdwis_drink_water.data_praser &mdash; sdwis_drink_water  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            sdwis_drink_water
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">sdwis_drink_water</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">sdwis_drink_water.data_praser</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdwis_drink_water.data_praser</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">tabulate</span>
+
+<span class="kn">from</span> <span class="nn">sdwis_drink_water.errors</span> <span class="kn">import</span> <span class="n">SdwisHTTPException</span><span class="p">,</span> <span class="n">SdwisQueryParamsException</span><span class="p">,</span> <span class="n">SdwisResultDataParserException</span>
+<span class="kn">from</span> <span class="nn">sdwis_drink_water.utils</span> <span class="kn">import</span> <span class="n">print_tabulate_result_with_divider</span>
+
+
+<div class="viewcode-block" id="Parser">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.Parser">[docs]</a>
+<span class="k">class</span> <span class="nc">Parser</span><span class="p">:</span>
+<div class="viewcode-block" id="Parser.parse">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.Parser.parse">[docs]</a>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the response payload and return the result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SDWISJSONParser">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.SDWISJSONParser">[docs]</a>
+<span class="k">class</span> <span class="nc">SDWISJSONParser</span><span class="p">(</span><span class="n">Parser</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [</span>
+<span class="sd">    {</span>
+<span class="sd">        &quot;pwsid&quot;: &quot;010502003&quot;,</span>
+<span class="sd">        &quot;sample_id&quot;: &quot;01050200317607&quot;,</span>
+<span class="sd">        &quot;primacy_agency_code&quot;: &quot;01&quot;,</span>
+<span class="sd">        &quot;epa_region&quot;: &quot;01&quot;,</span>
+<span class="sd">        &quot;sar_id&quot;: 18509157,</span>
+<span class="sd">        &quot;contaminant_code&quot;: &quot;PB90&quot;,</span>
+<span class="sd">        &quot;result_sign_code&quot;: &quot;=&quot;,</span>
+<span class="sd">        &quot;sample_measure&quot;: 0.029,</span>
+<span class="sd">        &quot;unit_of_measure&quot;: &quot;mg/L&quot;</span>
+<span class="sd">    },</span>
+<span class="sd">    {</span>
+<span class="sd">        &quot;pwsid&quot;: &quot;041210001&quot;,</span>
+<span class="sd">        &quot;sample_id&quot;: &quot;041461&quot;,</span>
+<span class="sd">        &quot;primacy_agency_code&quot;: &quot;04&quot;,</span>
+<span class="sd">        &quot;epa_region&quot;: &quot;04&quot;,</span>
+<span class="sd">        &quot;sar_id&quot;: 17717185,</span>
+<span class="sd">        &quot;contaminant_code&quot;: &quot;PB90&quot;,</span>
+<span class="sd">        &quot;result_sign_code&quot;: null,</span>
+<span class="sd">        &quot;sample_measure&quot;: 0.031,</span>
+<span class="sd">        &quot;unit_of_measure&quot;: &quot;mg/L&quot;</span>
+<span class="sd">    }</span>
+<span class="sd">    ]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SDWISJSONParser.parse">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.SDWISJSONParser.parse">[docs]</a>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">payload</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">json_result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SdwisHTTPException</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Failed to load payload as JSON Format </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">json_result</span></div>
+
+
+<div class="viewcode-block" id="SDWISJSONParser.parse_count_result">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.SDWISJSONParser.parse_count_result">[docs]</a>
+    <span class="k">def</span> <span class="nf">parse_count_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count_result</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">count_result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;TOTALQUERYRESULTS&quot;</span><span class="p">]</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ResultDataParser">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser">[docs]</a>
+<span class="k">class</span> <span class="nc">ResultDataParser</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize with data, which is a list of dictionaries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+
+<div class="viewcode-block" id="ResultDataParser.get_first_n_records">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.get_first_n_records">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_first_n_records</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first n records from the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.count">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.count">[docs]</a>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first n records from the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.show">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.show">[docs]</a>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first n records from the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="n">query_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">query_result</span><span class="p">]</span>
+        <span class="n">tabulate_result</span> <span class="o">=</span> <span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;simple_grid&quot;</span><span class="p">)</span>
+        <span class="c1"># print_tabulate_result_with_divider(tabulate_result)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">tabulate_result</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser._get_column_values">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser._get_column_values">[docs]</a>
+    <span class="k">def</span> <span class="nf">_get_column_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract all values for a given key from the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">record</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser._get_column_values_with_records">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser._get_column_values_with_records">[docs]</a>
+    <span class="k">def</span> <span class="nf">_get_column_values_with_records</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract all values for a given key from the data along with their corresponding records.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">record</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">record</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.find_max">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.find_max">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_max</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the maximum value(s) and corresponding records for a given key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">values_with_records</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_values_with_records</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">values_with_records</span><span class="p">:</span>
+            <span class="n">max_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">values_with_records</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([</span><span class="n">record</span> <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">values_with_records</span> <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">max_val</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([])</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.find_min">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.find_min">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_min</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the minimum value(s) and corresponding records for a given key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">values_with_records</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_values_with_records</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">values_with_records</span><span class="p">:</span>
+            <span class="n">min_val</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">values_with_records</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([</span><span class="n">record</span> <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">values_with_records</span> <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">min_val</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([])</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser._parse_condition">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser._parse_condition">[docs]</a>
+    <span class="k">def</span> <span class="nf">_parse_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(.*?)(&gt;=|&lt;=|!=|==|=|&gt;|&lt;)(.*)&quot;</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Condition string is not in the expected format.&quot;</span><span class="p">)</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">operator</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">operator</span> <span class="o">==</span> <span class="s2">&quot;=&quot;</span><span class="p">:</span>
+            <span class="n">operator</span> <span class="o">=</span> <span class="s2">&quot;==&quot;</span>
+        <span class="k">return</span> <span class="n">key</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser._filter_by_condition">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser._filter_by_condition">[docs]</a>
+    <span class="k">def</span> <span class="nf">_filter_by_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_condition</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+        <span class="n">filtered_records</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
+                <span class="n">record_value</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">record_value</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">{</span><span class="n">operator</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">):</span>
+                    <span class="n">filtered_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">filtered_records</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.find_min_with_condition">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.find_min_with_condition">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_min_with_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="n">filtered_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_by_condition</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filtered_data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([])</span>
+        <span class="n">min_value</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">filtered_data</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">record</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([</span><span class="n">record</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">filtered_data</span> <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">min_value</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.find_max_with_condition">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.find_max_with_condition">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_max_with_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="n">filtered_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_by_condition</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filtered_data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([])</span>
+        <span class="n">max_value</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">filtered_data</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">record</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([</span><span class="n">record</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">filtered_data</span> <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">max_value</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.find_by_condition">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.find_by_condition">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_by_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find records that match a condition like &#39;KEY&gt;value&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filtered_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_by_condition</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filtered_data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">([])</span>
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.get_all_keys">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.get_all_keys">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a set of all keys in the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">all_keys</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.export_data">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.export_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">export_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Export data to a file in the specified format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SdwisResultDataParserException</span><span class="p">(</span><span class="s2">&quot;empty result can&#39;t be exported&quot;</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s2">&quot;parquet&quot;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s2">&quot;xlsx&quot;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s2">&quot;csv&quot;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s2">&quot;txt&quot;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SdwisResultDataParserException</span><span class="p">(</span><span class="s2">&quot;Unsupported file format.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data is successfully exported to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.intersect_with">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.intersect_with">[docs]</a>
+    <span class="k">def</span> <span class="nf">intersect_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the intersection of the current data with the specified data.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            other_data (ResultDataParser): The specified data to intersect with.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            ResultDataParser: New instance containing the intersecting records.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other_data</span><span class="p">,</span> <span class="n">ResultDataParser</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;other_data must be a </span><span class="se">\&quot;</span><span class="s2">ResultDataParser</span><span class="se">\&quot;</span><span class="s2"> class&quot;</span><span class="p">)</span>
+
+        <span class="n">other_data</span> <span class="o">=</span> <span class="n">other_data</span><span class="o">.</span><span class="n">data</span>
+
+        <span class="c1"># Convert other_data to a set of frozensets and find intersection</span>
+        <span class="n">other_data_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">other_data</span><span class="p">)</span>
+        <span class="n">intersection</span> <span class="o">=</span> <span class="p">[</span><span class="n">record</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="k">if</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="ow">in</span> <span class="n">other_data_set</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">(</span><span class="n">intersection</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.difference_with">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.difference_with">[docs]</a>
+    <span class="k">def</span> <span class="nf">difference_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the difference between the current data and specified data.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            other_data (ResultDataParser): The specified data to compare with.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            ResultDataParser: New instance containing the difference.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other_data</span><span class="p">,</span> <span class="n">ResultDataParser</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;other_data must be a </span><span class="se">\&quot;</span><span class="s2">ResultDataParser</span><span class="se">\&quot;</span><span class="s2"> class&quot;</span><span class="p">)</span>
+
+        <span class="n">other_data_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">other_data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">difference</span> <span class="o">=</span> <span class="p">[</span><span class="n">record</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="k">if</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">other_data_set</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.merge_with">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.merge_with">[docs]</a>
+    <span class="k">def</span> <span class="nf">merge_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge the current data with the specified data.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            other_data (ResultDataParser): The specified data to merge with.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            ResultDataParser: New instance containing the merged data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other_data</span><span class="p">,</span> <span class="n">ResultDataParser</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;other_data must be a </span><span class="se">\&quot;</span><span class="s2">ResultDataParser</span><span class="se">\&quot;</span><span class="s2"> class&quot;</span><span class="p">)</span>
+
+        <span class="n">merged_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="p">[</span><span class="n">record</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">other_data</span><span class="o">.</span><span class="n">data</span> <span class="k">if</span>
+                                   <span class="nb">frozenset</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">(</span><span class="n">merged_data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResultDataParser.remove_key">
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser.remove_key">[docs]</a>
+    <span class="k">def</span> <span class="nf">remove_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key_to_remove</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove a specified key from all data records.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            key_to_remove (str): The key to be removed from the data records.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            ResultDataParser: New instance with the key removed from all records.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">modified_data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="c1"># Create a copy of the record and remove the key if it exists</span>
+            <span class="n">modified_record</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">record</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="n">key_to_remove</span><span class="p">}</span>
+            <span class="n">modified_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modified_record</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ResultDataParser</span><span class="p">(</span><span class="n">modified_data</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, norahtao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

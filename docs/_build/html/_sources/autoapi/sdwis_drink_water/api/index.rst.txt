@@ -1,0 +1,48 @@
+:py:mod:`sdwis_drink_water.api`
+===============================
+
+.. py:module:: sdwis_drink_water.api
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.api.SdwisAPI
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.api.log
+
+
+.. py:data:: log
+
+   
+
+.. py:class:: SdwisAPI(base_url='https://data.epa.gov/efservice', retry_count=0, retry_delay=0, timeout=10, user_agent=None, enable_cache=True, cache_time=3600, print_url=False)
+
+
+   .. py:method:: get_request(url, endpoint_parameters=(), params=None, only_count=False, headers=None, use_cache=True, multi_mode=False, **kwargs)
+
+      :param url:
+      :param endpoint_parameters:
+      :param params:
+      :param only_count:
+      :param headers:
+      :param use_cache:
+      :param multi_mode:
+      :param kwargs:
+      :return:
+
+
+

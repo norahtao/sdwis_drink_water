@@ -1,0 +1,176 @@
+:py:mod:`sdwis_drink_water.data_praser`
+=======================================
+
+.. py:module:: sdwis_drink_water.data_praser
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.data_praser.Parser
+   sdwis_drink_water.data_praser.SDWISJSONParser
+   sdwis_drink_water.data_praser.ResultDataParser
+
+
+
+
+.. py:class:: Parser
+
+
+   .. py:method:: parse(payload, *args, **kwargs)
+      :abstractmethod:
+
+      Parse the response payload and return the result.
+
+
+
+.. py:class:: SDWISJSONParser
+
+
+   Bases: :py:obj:`Parser`
+
+   [
+   {
+       "pwsid": "010502003",
+       "sample_id": "01050200317607",
+       "primacy_agency_code": "01",
+       "epa_region": "01",
+       "sar_id": 18509157,
+       "contaminant_code": "PB90",
+       "result_sign_code": "=",
+       "sample_measure": 0.029,
+       "unit_of_measure": "mg/L"
+   },
+   {
+       "pwsid": "041210001",
+       "sample_id": "041461",
+       "primacy_agency_code": "04",
+       "epa_region": "04",
+       "sar_id": 17717185,
+       "contaminant_code": "PB90",
+       "result_sign_code": null,
+       "sample_measure": 0.031,
+       "unit_of_measure": "mg/L"
+   }
+   ]
+
+   .. py:method:: parse(payload, *args, **kwargs)
+
+      Parse the response payload and return the result.
+
+
+   .. py:method:: parse_count_result(count_result)
+
+
+
+.. py:class:: ResultDataParser(data)
+
+
+   .. py:method:: get_first_n_records(n)
+
+      Return the first n records from the data.
+
+
+   .. py:method:: count()
+
+      Return the first n records from the data.
+
+
+   .. py:method:: show()
+
+      Return the first n records from the data.
+
+
+   .. py:method:: _get_column_values(key)
+
+      Extract all values for a given key from the data.
+
+
+   .. py:method:: _get_column_values_with_records(key)
+
+      Extract all values for a given key from the data along with their corresponding records.
+
+
+   .. py:method:: find_max(key)
+
+      Find the maximum value(s) and corresponding records for a given key.
+
+
+   .. py:method:: find_min(key)
+
+      Find the minimum value(s) and corresponding records for a given key.
+
+
+   .. py:method:: _parse_condition(condition)
+
+
+   .. py:method:: _filter_by_condition(condition)
+
+
+   .. py:method:: find_min_with_condition(key, condition)
+
+
+   .. py:method:: find_max_with_condition(key, condition)
+
+
+   .. py:method:: find_by_condition(condition)
+
+      Find records that match a condition like 'KEY>value'.
+
+
+   .. py:method:: get_all_keys()
+
+      Return a set of all keys in the data.
+
+
+   .. py:method:: export_data(filename, format_type='csv')
+
+      Export data to a file in the specified format.
+
+
+   .. py:method:: intersect_with(other_data)
+
+      Find the intersection of the current data with the specified data.
+      :param other_data: The specified data to intersect with.
+      :type other_data: ResultDataParser
+
+      :returns: New instance containing the intersecting records.
+      :rtype: ResultDataParser
+
+
+   .. py:method:: difference_with(other_data)
+
+      Find the difference between the current data and specified data.
+      :param other_data: The specified data to compare with.
+      :type other_data: ResultDataParser
+
+      :returns: New instance containing the difference.
+      :rtype: ResultDataParser
+
+
+   .. py:method:: merge_with(other_data)
+
+      Merge the current data with the specified data.
+      :param other_data: The specified data to merge with.
+      :type other_data: ResultDataParser
+
+      :returns: New instance containing the merged data.
+      :rtype: ResultDataParser
+
+
+   .. py:method:: remove_key(key_to_remove)
+
+      Remove a specified key from all data records.
+      :param key_to_remove: The key to be removed from the data records.
+      :type key_to_remove: str
+
+      :returns: New instance with the key removed from all records.
+      :rtype: ResultDataParser
+
+
+

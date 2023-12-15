@@ -1,0 +1,34 @@
+:py:mod:`sdwis_drink_water.utils_for_jupyter_print`
+===================================================
+
+.. py:module:: sdwis_drink_water.utils_for_jupyter_print
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.utils_for_jupyter_print.tabulate_for_jupyter
+   sdwis_drink_water.utils_for_jupyter_print.print_column_description
+   sdwis_drink_water.utils_for_jupyter_print.print_result_data
+   sdwis_drink_water.utils_for_jupyter_print.print_columns
+
+
+
+.. py:function:: tabulate_for_jupyter(table)
+
+
+.. py:function:: print_column_description(result_dict)
+
+
+.. py:function:: print_result_data(result_data)
+
+
+.. py:function:: print_columns(column_names)
+
+

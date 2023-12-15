@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdwis_drink_water.data_praser &mdash; sdwis_drink_water  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="sdwis_drink_water.errors" href="../errors/index.html" />
+    <link rel="prev" title="sdwis_drink_water.configs" href="../configs/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            sdwis_drink_water
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.api</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_for_table/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.api_for_table</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../configs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.configs</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.data_praser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../errors/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.errors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../utils_for_jupyter_print/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.utils_for_jupyter_print</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../enforcement_action/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">enforcement_action</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../treatment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">treatment</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../violation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">violation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../geographic_area/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geographic_area</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../violation_enf_assoc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">violation_enf_assoc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../water_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">water_system</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcr_sample/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lcr_sample</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../water_system_facility/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">water_system_facility</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcr_sample_result/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lcr_sample_result</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../service_area/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">service_area</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">sdwis_drink_water</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.data_praser</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/sdwis_drink_water/data_praser/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sdwis_drink_water.data_praser">
+<span id="sdwis-drink-water-data-praser"></span><h1><a class="reference internal" href="#module-sdwis_drink_water.data_praser" title="sdwis_drink_water.data_praser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.data_praser</span></code></a><a class="headerlink" href="#module-sdwis_drink_water.data_praser" title="Link to this heading"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.data_praser.Parser" title="sdwis_drink_water.data_praser.Parser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parser</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sdwis_drink_water.data_praser.SDWISJSONParser" title="sdwis_drink_water.data_praser.SDWISJSONParser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDWISJSONParser</span></code></a></p></td>
+<td><p><p>[</p>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResultDataParser</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.Parser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.data_praser.</span></span><span class="sig-name descname"><span class="pre">Parser</span></span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#Parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.Parser" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.Parser.parse">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#Parser.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.Parser.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse the response payload and return the result.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.SDWISJSONParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.data_praser.</span></span><span class="sig-name descname"><span class="pre">SDWISJSONParser</span></span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#SDWISJSONParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.SDWISJSONParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sdwis_drink_water.data_praser.Parser" title="sdwis_drink_water.data_praser.Parser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parser</span></code></a></p>
+<section id="id1">
+<h4>[<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>“pwsid”: “010502003”,
+“sample_id”: “01050200317607”,
+“primacy_agency_code”: “01”,
+“epa_region”: “01”,
+“sar_id”: 18509157,
+“contaminant_code”: “PB90”,
+“result_sign_code”: “=”,
+“sample_measure”: 0.029,
+“unit_of_measure”: “mg/L”</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“pwsid”: “041210001”,
+“sample_id”: “041461”,
+“primacy_agency_code”: “04”,
+“epa_region”: “04”,
+“sar_id”: 17717185,
+“contaminant_code”: “PB90”,
+“result_sign_code”: null,
+“sample_measure”: 0.031,
+“unit_of_measure”: “mg/L”</p>
+</div></blockquote>
+<section id="id2">
+<h5>}<a class="headerlink" href="#id2" title="Link to this heading"></a></h5>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.SDWISJSONParser.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#SDWISJSONParser.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.SDWISJSONParser.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse the response payload and return the result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.SDWISJSONParser.parse_count_result">
+<span class="sig-name descname"><span class="pre">parse_count_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count_result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#SDWISJSONParser.parse_count_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.SDWISJSONParser.parse_count_result" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.data_praser.</span></span><span class="sig-name descname"><span class="pre">ResultDataParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.get_first_n_records">
+<span class="sig-name descname"><span class="pre">get_first_n_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.get_first_n_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.get_first_n_records" title="Link to this definition"></a></dt>
+<dd><p>Return the first n records from the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.count">
+<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.count" title="Link to this definition"></a></dt>
+<dd><p>Return the first n records from the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.show" title="Link to this definition"></a></dt>
+<dd><p>Return the first n records from the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser._get_column_values">
+<span class="sig-name descname"><span class="pre">_get_column_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser._get_column_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser._get_column_values" title="Link to this definition"></a></dt>
+<dd><p>Extract all values for a given key from the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser._get_column_values_with_records">
+<span class="sig-name descname"><span class="pre">_get_column_values_with_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser._get_column_values_with_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser._get_column_values_with_records" title="Link to this definition"></a></dt>
+<dd><p>Extract all values for a given key from the data along with their corresponding records.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.find_max">
+<span class="sig-name descname"><span class="pre">find_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.find_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.find_max" title="Link to this definition"></a></dt>
+<dd><p>Find the maximum value(s) and corresponding records for a given key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.find_min">
+<span class="sig-name descname"><span class="pre">find_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.find_min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.find_min" title="Link to this definition"></a></dt>
+<dd><p>Find the minimum value(s) and corresponding records for a given key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser._parse_condition">
+<span class="sig-name descname"><span class="pre">_parse_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser._parse_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser._parse_condition" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser._filter_by_condition">
+<span class="sig-name descname"><span class="pre">_filter_by_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser._filter_by_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser._filter_by_condition" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.find_min_with_condition">
+<span class="sig-name descname"><span class="pre">find_min_with_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.find_min_with_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.find_min_with_condition" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.find_max_with_condition">
+<span class="sig-name descname"><span class="pre">find_max_with_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.find_max_with_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.find_max_with_condition" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.find_by_condition">
+<span class="sig-name descname"><span class="pre">find_by_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.find_by_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.find_by_condition" title="Link to this definition"></a></dt>
+<dd><p>Find records that match a condition like ‘KEY&gt;value’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.get_all_keys">
+<span class="sig-name descname"><span class="pre">get_all_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.get_all_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.get_all_keys" title="Link to this definition"></a></dt>
+<dd><p>Return a set of all keys in the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.export_data">
+<span class="sig-name descname"><span class="pre">export_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'csv'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.export_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.export_data" title="Link to this definition"></a></dt>
+<dd><p>Export data to a file in the specified format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.intersect_with">
+<span class="sig-name descname"><span class="pre">intersect_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.intersect_with"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.intersect_with" title="Link to this definition"></a></dt>
+<dd><p>Find the intersection of the current data with the specified data.
+:param other_data: The specified data to intersect with.
+:type other_data: ResultDataParser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New instance containing the intersecting records.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser">ResultDataParser</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.difference_with">
+<span class="sig-name descname"><span class="pre">difference_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.difference_with"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.difference_with" title="Link to this definition"></a></dt>
+<dd><p>Find the difference between the current data and specified data.
+:param other_data: The specified data to compare with.
+:type other_data: ResultDataParser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New instance containing the difference.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser">ResultDataParser</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.merge_with">
+<span class="sig-name descname"><span class="pre">merge_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.merge_with"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.merge_with" title="Link to this definition"></a></dt>
+<dd><p>Merge the current data with the specified data.
+:param other_data: The specified data to merge with.
+:type other_data: ResultDataParser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New instance containing the merged data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser">ResultDataParser</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.data_praser.ResultDataParser.remove_key">
+<span class="sig-name descname"><span class="pre">remove_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_to_remove</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/data_praser.html#ResultDataParser.remove_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.data_praser.ResultDataParser.remove_key" title="Link to this definition"></a></dt>
+<dd><p>Remove a specified key from all data records.
+:param key_to_remove: The key to be removed from the data records.
+:type key_to_remove: str</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New instance with the key removed from all records.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser">ResultDataParser</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../configs/index.html" class="btn btn-neutral float-left" title="sdwis_drink_water.configs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../errors/index.html" class="btn btn-neutral float-right" title="sdwis_drink_water.errors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, norahtao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

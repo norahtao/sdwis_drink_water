@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdwis-drink-water: Safe Drinking Water Information System (SDWIS) API Wrapper &mdash; sdwis_drink_water  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example usage" href="example.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            sdwis_drink_water
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">sdwis_drink_water</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">sdwis-drink-water: Safe Drinking Water Information System (SDWIS) API Wrapper</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdwis-drink-water-safe-drinking-water-information-system-sdwis-api-wrapper">
+<h1>sdwis-drink-water: Safe Drinking Water Information System (SDWIS) API Wrapper<a class="headerlink" href="#sdwis-drink-water-safe-drinking-water-information-system-sdwis-api-wrapper" title="Link to this heading"></a></h1>
+<p>Python wrappers for the  <a class="reference external" href="https://www.epa.gov/enviro/envirofacts-data-service-api">Envirofacts Data Service API</a> provided by the U.S. Environmental Protection Agency (EPA), with a focus on the Safe Drinking Water Information System (SDWIS).</p>
+<p><a class="reference external" href="https://pypi.org/project/sdwis-drink-water/"><img alt="PyPI Version" src="https://img.shields.io/pypi/v/sdwis-drink-water?label=PyPI" /></a>
+<a class="reference external" href="https://pypi.org/project/sdwis-drink-water/"><img alt="Python Versions" src="https://img.shields.io/pypi/pyversions/sdwis-drink-water?label=Python" /></a></p>
+<p><a class="reference external" href="https://sdwis-drink-water.readthedocs.io/en/latest/"><img alt="Documentation Status" src="https://readthedocs.org/projects/sdwis-drink-water/badge/?version=latest" /></a></p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>The easiest way to install the latest version from PyPI is by using
+<a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install sdwis-drink-water
+</pre></div>
+</div>
+<p>You can also use Git to clone the repository from GitHub to install the latest
+development version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://
+cd sdwis-drink-water
+pip install .
+</pre></div>
+</div>
+<p>Alternatively, install directly from the GitHub repository:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install git+https://
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<p>You do not require any API key to access data from the Envirofacts Data Service API. However, it is essential to familiarize yourself with the SDWIS (Safe Drinking Water Information System) database structure. Understanding this structure will enable you to effectively utilize the various methods provided by the library.</p>
+<ul class="simple">
+<li><p><strong>Safe Drinking Water Information System (SDWIS) Database</strong></p>
+<ul>
+<li><p>ENFORCEMENT ACTION</p></li>
+<li><p>GEOGRAPHIC AREA</p></li>
+<li><p>LCR_SAMPLE_RESULT</p></li>
+<li><p>LCR_SAMPLE</p></li>
+<li><p>SERVICE AREA</p></li>
+<li><p>TREATMENT</p></li>
+<li><p>WATER SYSTEM</p></li>
+<li><p>WATER SYSTEM FACILITY</p></li>
+<li><p>VIOLATION</p></li>
+<li><p>VIOLATION_ENF_ASSOC</p></li>
+</ul>
+</li>
+</ul>
+<section id="sdwistable-class">
+<h3>SdwisTable Class<a class="headerlink" href="#sdwistable-class" title="Link to this heading"></a></h3>
+<section id="get-table-information-data">
+<h4>Get Table Information &amp; Data<a class="headerlink" href="#get-table-information-data" title="Link to this heading"></a></h4>
+<p>I provide server methods for fetch table information directly</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sdwis_drink_water</span> <span class="kn">import</span> <span class="n">SdwisTable</span>
+
+<span class="c1"># &quot;print_url=True&quot; here will cause subsequent queries to display the requested URL</span>
+<span class="n">table_api</span> <span class="o">=</span> <span class="n">SdwisTable</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># &quot;print_to_console=True&quot; here causes all subsequent queries to be printed</span>
+<span class="c1"># fetch all table names</span>
+<span class="n">table_names</span> <span class="o">=</span> <span class="n">table_api</span><span class="o">.</span><span class="n">get_all_table_names</span><span class="p">(</span><span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># fetch all table names with description (Crawl the latest information from the website)</span>
+<span class="n">table_api</span><span class="o">.</span><span class="n">get_all_table_names_and_descriptions</span><span class="p">(</span><span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">┌───────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐</span>
+<span class="sd">│ table_name            │ description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ ENFORCEMENT_ACTION    │ Documents actions taken against a Public Water System (PWS), laboratory, or operator. Includes requirements that must be met in order to rectify a failure to perform under the Public Water Supply Supervision (PWSS) Program. Enforcement actions are informal and formal. They may be issued by the Primacy State (or its representative) or the EPA. Examples: administrative and civil/criminal legal actions, warning notices, citations, orders to follow water treatment procedures, orders to follow sampling requirements, orders to resolve violations, moratoriums on connections, temporary injunctions, restraining orders, penalties, and orders to comply with reporting requirements. Example descriptors: type of enforcement action, directed actions, and milestone date(s). │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ GEOGRAPHIC_AREA       │ Information on political units established by geographic boundaries, such as state, town, or county served by a Water System.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ LCR_SAMPLE_RESULT     │ 90th percentile sample summary results data for lead or copper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ LCR_SAMPLE            │ 90th percentile sample summaries data for lead or copper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ SERVICE_AREA          │ A service area defines the sensitive populations that receive water from the water system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ TREATMENT             │ Treatment objectives and process for treating water from a water system facility.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ WATER_SYSTEM          │ Inventory information on public water systems.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ WATER_SYSTEM_FACILITY │ Inventory information on public water system facilities.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ VIOLATION             │ Documents a breach of a requirement. Violations are detected by assessment of sample results or reviews (including on site visits). Violations may lead to legal actions or compliance orders. Violations are publicized, when required, by public notification. Violations may be remedied by compliance/enforcement remedies, such as improved filtration techniques or changes in procedures. Examples: Maximum Contaminant Level (MCL) violations, failure to replace lead service lines, monitoring and reporting violations, treatment technique violations, and procedural violations. Example descriptors: type, date, description, severity, and recommended corrective action(s) to include milestones.                                                                                │</span>
+<span class="sd">├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="sd">│ VIOLATION_ENF_ASSOC   │ Association between a violation and an enforcement action.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       │</span>
+<span class="sd">└───────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">:</span>
+    <span class="c1"># fetch structure for specific table name</span>
+    <span class="n">table_api</span><span class="o">.</span><span class="n">get_table_column_name_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="n">table_name</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">:</span>
+    <span class="c1"># fetch first data for specific table name</span>
+    <span class="n">table_api</span><span class="o">.</span><span class="n">get_table_first_data_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="n">table_name</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">:</span>
+    <span class="c1"># fetch first n for specific table name</span>
+    <span class="n">table_api</span><span class="o">.</span><span class="n">get_table_first_n_data_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="n">table_name</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
+<section id="handle-table-data">
+<h4>Handle Table Data<a class="headerlink" href="#handle-table-data" title="Link to this heading"></a></h4>
+<p>I provide server methods for handling results</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sdwis_drink_water</span> <span class="kn">import</span> <span class="n">SdwisTable</span>
+
+<span class="c1"># &quot;print_url=True&quot; here will cause subsequent queries to display the requested URL</span>
+<span class="n">table_api</span> <span class="o">=</span> <span class="n">SdwisTable</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># fetch first 1000 data from LCR_SAMPLE_RESULT table</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">table_api</span><span class="o">.</span><span class="n">get_table_first_n_data_by_table_name</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="s2">&quot;LCR_SAMPLE_RESULT&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># get all keys of result data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get_all_keys</span><span class="p">())</span>
+
+<span class="c1"># get first n data in results</span>
+<span class="n">first_one</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_first_n_records</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">first_one</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;find max sample_measure in results&quot;</span><span class="p">)</span>
+<span class="n">max_one</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">find_max</span><span class="p">(</span><span class="s2">&quot;sample_measure&quot;</span><span class="p">)</span>
+<span class="n">max_one</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;find max sample_measure in results with condition (contaminant_code==PB90)&quot;</span><span class="p">)</span>
+<span class="n">max_one_limited_to_pb</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">find_max_with_condition</span><span class="p">(</span><span class="s2">&quot;sample_measure&quot;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="s2">&quot;contaminant_code==PB90&quot;</span><span class="p">)</span>
+<span class="n">max_one_limited_to_pb</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># export data to a specific file</span>
+<span class="n">result</span><span class="o">.</span><span class="n">export_data</span><span class="p">(</span><span class="s2">&quot;output.xlsx&quot;</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;xlsx&quot;</span><span class="p">)</span>
+<span class="c1"># result.export_data(&quot;output.parquet&quot;, format_type=&quot;parquet&quot;)</span>
+<span class="c1"># result.export_data(&quot;output.csv&quot;, format_type=&quot;csv&quot;)</span>
+<span class="c1"># result.export_data(&quot;output.txt&quot;, format_type=&quot;txt&quot;)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="specific-table-handle">
+<h3>Specific Table Handle<a class="headerlink" href="#specific-table-handle" title="Link to this heading"></a></h3>
+<p>You may notice that the most methods of  <strong><code class="docutils literal notranslate"><span class="pre">SdwisTable</span></code></strong> require  <strong><code class="docutils literal notranslate"><span class="pre">&quot;table_name&quot;</span></code></strong> parameter.
+If you only want to focus on specific TABLE, you can directly use its Class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sdwis_drink_water</span> <span class="kn">import</span> <span class="n">LcrSample</span><span class="p">,</span> <span class="n">LcrSampleResult</span><span class="p">,</span> <span class="n">Violation</span><span class="p">,</span> <span class="n">WaterSystem</span><span class="p">,</span> <span class="n">WaterSystemFacility</span><span class="p">,</span> <span class="n">GeographicArea</span>
+</pre></div>
+</div>
+<section id="watersystem">
+<h4>WaterSystem<a class="headerlink" href="#watersystem" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sdwis_drink_water</span> <span class="kn">import</span> <span class="n">WaterSystem</span>
+<span class="n">water_system_api</span> <span class="o">=</span> <span class="n">WaterSystem</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># fetch first data from Water_System table</span>
+<span class="n">water_system_api</span><span class="o">.</span><span class="n">get_table_first_data</span><span class="p">()</span>
+
+<span class="c1"># fetch first n data from Water_System table</span>
+<span class="n">water_system_api</span><span class="o">.</span><span class="n">get_table_first_n_data</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># get summarize data number according to epa_region</span>
+<span class="n">water_system_api</span><span class="o">.</span><span class="n">summarize_water_system_data_by_epa_region</span><span class="p">(</span><span class="n">multi_threads</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+<span class="sd">  EPA_REGION_ID    WATER_SYSTEM_TOTAL_NUMBER</span>
+<span class="sd">---------------  ---------------------------</span>
+<span class="sd">   EPA_REGION_1                        33898</span>
+<span class="sd">   EPA_REGION_2                        43325</span>
+<span class="sd">   EPA_REGION_3                        25563</span>
+<span class="sd">   EPA_REGION_4                        67410</span>
+<span class="sd">   EPA_REGION_5                        30931</span>
+<span class="sd">   EPA_REGION_6                        24074</span>
+<span class="sd">   EPA_REGION_7                        17077</span>
+<span class="sd">   EPA_REGION_8                        45508</span>
+<span class="sd">   EPA_REGION_9                       125223</span>
+<span class="sd">  EPA_REGION_10                        15799</span>
+<span class="sd">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">water_system_epa_1</span> <span class="o">=</span> <span class="n">water_system_api</span><span class="o">.</span><span class="n">get_water_system_by_epa_region</span><span class="p">(</span><span class="n">epa_region</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># export data to xlsx</span>
+<span class="n">water_system_epa_1</span><span class="o">.</span><span class="n">export_data</span><span class="p">(</span><span class="s2">&quot;./output_files/water_system_epa_1.xlsx&quot;</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;xlsx&quot;</span><span class="p">)</span>
+<span class="c1"># print all keys to determine how to use this data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">water_system_epa_1</span><span class="o">.</span><span class="n">get_all_keys</span><span class="p">())</span>
+
+<span class="c1"># find by condition &quot;is_grant_eligible_ind==Y&quot;</span>
+<span class="n">is_grant_eligible_ind</span> <span class="o">=</span> <span class="n">water_system_epa_1</span><span class="o">.</span><span class="n">find_by_condition</span><span class="p">(</span><span class="s2">&quot;is_grant_eligible_ind=Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_grant_eligible_ind</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+
+<span class="c1"># find by condition &quot;is_wholesaler_ind==Y&quot;</span>
+<span class="n">is_wholesaler_ind</span> <span class="o">=</span> <span class="n">water_system_epa_1</span><span class="o">.</span><span class="n">find_by_condition</span><span class="p">(</span><span class="s2">&quot;is_wholesaler_ind=Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_wholesaler_ind</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+
+<span class="c1"># find by condition &quot;is_grant_eligible_ind==Y&quot; and &quot;is_wholesaler_ind==Y&quot;</span>
+<span class="n">is_grant_eligible_ind_and_is_wholesaler_ind</span> <span class="o">=</span> <span class="n">is_grant_eligible_ind</span><span class="o">.</span><span class="n">find_by_condition</span><span class="p">(</span><span class="s2">&quot;is_wholesaler_ind=Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_grant_eligible_ind_and_is_wholesaler_ind</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="n">is_grant_eligible_ind_and_is_wholesaler_ind</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># export data to csv</span>
+<span class="n">is_grant_eligible_ind_and_is_wholesaler_ind</span><span class="o">.</span><span class="n">export_data</span><span class="p">(</span><span class="s2">&quot;./output_files/water_system_epa_1_filtered_result.csv&quot;</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="quickly-access-to-full-database-then-export-to-a-xlsx-file">
+<h3>Quickly access to full database, then export to a xlsx file<a class="headerlink" href="#quickly-access-to-full-database-then-export-to-a-xlsx-file" title="Link to this heading"></a></h3>
+<p>This package can serves as an efficient crawler tool, designed to swiftly scrape the entire contents of a data table and export them to an XLSX file. It adeptly navigates the API’s restriction of returning a maximum of 10,000 items per query by intelligently segmenting the query into multiple smaller queries. Additionally, the tool boasts a multi-threaded mode, activated by setting the parameter “multi_threads=True”. This mode leverages the power of parallel processing to significantly accelerate the rate at which query results are retrieved, ensuring a more efficient and time-effective data collection process.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sdwis_drink_water</span> <span class="kn">import</span> <span class="n">LcrSampleResult</span>
+<span class="n">lcr_sample_result_api</span> <span class="o">=</span> <span class="n">LcrSampleResult</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">all_lcr_sample</span> <span class="o">=</span> <span class="n">lcr_sample_result_api</span><span class="o">.</span><span class="n">get_table_first_n_data</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">99999999</span><span class="p">,</span> <span class="n">multi_threads</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">print_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">all_lcr_sample</span><span class="o">.</span><span class="n">export_data</span><span class="p">(</span><span class="s2">&quot;./output_files/all_lcr_samples.xlsx&quot;</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;xlsx&quot;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The data number in the database provided by the API is 247567. Your request number exceeds this limit, please note.</span>
+<span class="sd">Fetching Data by multi_threads_mode:   100%|██████████| 25/25 [00:12&lt;00:00,  2.02it/s]</span>
+<span class="sd">Data is successfully exported to all_lcr_samples.xlsx!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<p>I have added a repository with examples in a python notebook to better see the
+usage of the library: https://github.com/RomelTorres/av_example</p>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<p>The code documentation can be found at https://.readthedocs.io/en/latest/</p>
+</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h2>
+<p>Contributing is always welcome. Just contact us on how best you can contribute, add an issue, or make a PR.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code> was created by norahtao. It is licensed under the terms of the MIT license.</p>
+</section>
+<section id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code> was created with <a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code></a> and the <code class="docutils literal notranslate"><span class="pre">py-pkgs-cookiecutter</span></code> <a class="reference external" href="https://github.com/py-pkgs/py-pkgs-cookiecutter">template</a>.</p>
+</section>
+<section id="todos">
+<h2>TODOs<a class="headerlink" href="#todos" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add more features as required</p></li>
+</ul>
+</section>
+<section id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Link to this heading"></a></h2>
+<p>You can reach/follow me on any of the following platforms:</p>
+<ul class="simple">
+<li><p>Email: rt29112&#64;columbia.edu</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="example.html" class="btn btn-neutral float-right" title="Example usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, norahtao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

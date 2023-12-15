@@ -1,0 +1,101 @@
+:py:mod:`sdwis_drink_water.api_for_table`
+=========================================
+
+.. py:module:: sdwis_drink_water.api_for_table
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.api_for_table.SdwisTable
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.api_for_table.log
+
+
+.. py:data:: log
+
+   
+
+.. py:class:: SdwisTable(enable_cache=True, print_url=False)
+
+
+   .. py:method:: _get_data_by_request(query_url, print_to_console=False, multi_threads=False)
+
+
+   .. py:method:: _get_result_data_by_request(query_url, print_to_console=False)
+
+
+   .. py:method:: get_all_table_names(print_to_console=True)
+
+      :param print_to_console:
+      :param kwargs:
+      :return:
+
+
+   .. py:method:: get_all_table_names_and_descriptions(print_to_console=True)
+
+
+   .. py:method:: get_table_column_name_by_table_name(table_name='', print_to_console=True)
+
+
+   .. py:method:: get_columns_description_by_table_name(table_name='', print_to_console=True, multi_threads=False)
+
+
+   .. py:method:: get_table_data_number(table_name='')
+
+
+   .. py:method:: get_table_first_data_by_table_name(table_name='', print_to_console=True)
+
+
+   .. py:method:: get_table_first_n_data_by_table_name(table_name='', n=0, print_to_console=True, multi_threads=False)
+
+
+   .. py:method:: get_data_by_conditions(table_name='', condition1='', condition2='', condition3='', print_to_console=True, only_count=False)
+
+      condition_handle is combined with column operation
+      :param table_name:
+      :param condition1:
+      :param condition2:
+      :param condition3:
+      :param print_to_console:
+      :param only_count:
+      :param kwargs:
+      :return:
+
+
+   .. py:method:: summarize_data_by_epa_region(table_name='', print_to_console=True, multi_threads=False)
+
+      :param table_name:
+      :param print_to_console:
+      :param only_count:
+      :param multi_threads:
+      :param kwargs:
+      :return:
+
+
+   .. py:method:: get_data_by_epa_region(table_name='', epa_region=1, print_to_console=True, only_count=False, multi_mode=False)
+
+      SAMPLE URL: https://data.epa.gov/efservice/LCR_SAMPLE/EPA_REGION/=/01/JSON
+      :param multi_mode:
+      :param table_name:
+      :param only_count:
+      :param epa_region:
+      :param print_to_console:
+      :param kwargs:
+      :return:
+
+
+

@@ -1,0 +1,28 @@
+:py:mod:`sdwis_drink_water`
+===========================
+
+.. py:module:: sdwis_drink_water
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   api/index.rst
+   api_for_table/index.rst
+   configs/index.rst
+   data_praser/index.rst
+   errors/index.rst
+   utils/index.rst
+   utils_for_jupyter_print/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+
+   
+
