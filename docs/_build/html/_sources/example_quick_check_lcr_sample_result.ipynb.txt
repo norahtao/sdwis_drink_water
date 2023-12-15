@@ -45,7 +45,7 @@
     }
    ],
    "source": [
-    "from sdwis_drink_water import LcrSampleResult\n",
+    "from sdwis_drink_water.models import LcrSampleResult\n",
     "\n",
     "# Due to the width limitation, I wrote some functions for outputting some results using an interactive scrollbar\n",
     "from sdwis_drink_water.utils_for_jupyter_print import print_column_description, print_result_data\n",
