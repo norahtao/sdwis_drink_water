@@ -10,21 +10,24 @@ Python wrappers for the  [Envirofacts Data Service API](https://www.epa.gov/envi
 Installation
 ------------
 
-The easiest way to install the latest version from PyPI is by using
+The easiest way to install the latest version from Test PyPI is by using
 [pip](https://pip.pypa.io/):
 
-    pip install sdwis-drink-water
+    pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple sdwis_drink_water
+
+[//]: # (The easiest way to install the latest version from Test PyPI is by using)
+[//]: # (  pip install sdwis-drink-water)
 
 You can also use Git to clone the repository from GitHub to install the latest
 development version:
 
-    git clone https://
+    git clone https://github.com/norahtao/sdwis_drink_water
     cd sdwis-drink-water
     pip install .
 
 Alternatively, install directly from the GitHub repository:
 
-    pip install git+https://
+    pip install git+https://github.com/norahtao/sdwis_drink_water
 
 
 ## Basic Usage
