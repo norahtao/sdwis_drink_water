@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='sdwis_drink_water',
-    version='1.0.0',
+    version='1.1.0',
     packages=find_packages(),
     description='Python wrapper for the Envirofacts Data Service API provided by the U.S. Environmental Protection Agency (EPA), with a focus on the Safe Drinking Water Information System (SDWIS).',
     long_description=open('README.md').read(),

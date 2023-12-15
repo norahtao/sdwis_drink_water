@@ -7,7 +7,7 @@
   <title>sdwis_drink_water.models &mdash; sdwis_drink_water  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
 
   
@@ -110,6 +110,456 @@
 <li class="toctree-l1"><a class="reference internal" href="water_system_facility/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.models.water_system_facility</span></code></a></li>
 </ul>
 </div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.models.EnforcementAction" title="sdwis_drink_water.models.EnforcementAction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnforcementAction</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sdwis_drink_water.models.GeographicArea" title="sdwis_drink_water.models.GeographicArea"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeographicArea</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.models.LcrSample" title="sdwis_drink_water.models.LcrSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LcrSample</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sdwis_drink_water.models.LcrSampleResult" title="sdwis_drink_water.models.LcrSampleResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LcrSampleResult</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.models.ServiceArea" title="sdwis_drink_water.models.ServiceArea"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ServiceArea</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sdwis_drink_water.models.Treatment" title="sdwis_drink_water.models.Treatment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Treatment</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.models.Violation" title="sdwis_drink_water.models.Violation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Violation</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sdwis_drink_water.models.ViolationEnfAssoc" title="sdwis_drink_water.models.ViolationEnfAssoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ViolationEnfAssoc</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.models.WaterSystem" title="sdwis_drink_water.models.WaterSystem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WaterSystem</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sdwis_drink_water.models.WaterSystemFacility" title="sdwis_drink_water.models.WaterSystemFacility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WaterSystemFacility</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.EnforcementAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">EnforcementAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/enforcement_action.html#EnforcementAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.EnforcementAction" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.EnforcementAction.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/enforcement_action.html#EnforcementAction.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.EnforcementAction.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.EnforcementAction.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/enforcement_action.html#EnforcementAction.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.EnforcementAction.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.EnforcementAction.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/enforcement_action.html#EnforcementAction.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.EnforcementAction.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.EnforcementAction.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/enforcement_action.html#EnforcementAction.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.EnforcementAction.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.EnforcementAction.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/enforcement_action.html#EnforcementAction.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.EnforcementAction.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.EnforcementAction.get_enforcement_action_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_enforcement_action_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/enforcement_action.html#EnforcementAction.get_enforcement_action_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.EnforcementAction.get_enforcement_action_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">GeographicArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.summarize_geographic_area_data_by_epa_region">
+<span class="sig-name descname"><span class="pre">summarize_geographic_area_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.summarize_geographic_area_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.summarize_geographic_area_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.get_geographic_area_by_epa_region">
+<span class="sig-name descname"><span class="pre">get_geographic_area_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.get_geographic_area_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.get_geographic_area_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.GeographicArea.get_geographic_area_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_geographic_area_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/geographic_area.html#GeographicArea.get_geographic_area_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.GeographicArea.get_geographic_area_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">LcrSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.summarize_lcr_sample_data_by_epa_region">
+<span class="sig-name descname"><span class="pre">summarize_lcr_sample_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.summarize_lcr_sample_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.summarize_lcr_sample_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.get_lcr_sample_by_epa_region">
+<span class="sig-name descname"><span class="pre">get_lcr_sample_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.get_lcr_sample_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.get_lcr_sample_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSample.get_lcr_sample_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_lcr_sample_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample.html#LcrSample.get_lcr_sample_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSample.get_lcr_sample_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">LcrSampleResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.summarize_lcr_sample_result_data_by_epa_region">
+<span class="sig-name descname"><span class="pre">summarize_lcr_sample_result_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.summarize_lcr_sample_result_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.summarize_lcr_sample_result_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.get_lcr_sample_result_by_epa_region">
+<span class="sig-name descname"><span class="pre">get_lcr_sample_result_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.get_lcr_sample_result_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.get_lcr_sample_result_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.LcrSampleResult.get_lcr_sample_result_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_lcr_sample_result_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/lcr_sample_result.html#LcrSampleResult.get_lcr_sample_result_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.LcrSampleResult.get_lcr_sample_result_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ServiceArea">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">ServiceArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/service_area.html#ServiceArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ServiceArea" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ServiceArea.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/service_area.html#ServiceArea.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ServiceArea.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ServiceArea.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/service_area.html#ServiceArea.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ServiceArea.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ServiceArea.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/service_area.html#ServiceArea.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ServiceArea.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ServiceArea.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/service_area.html#ServiceArea.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ServiceArea.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ServiceArea.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/service_area.html#ServiceArea.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ServiceArea.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ServiceArea.get_service_area_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_service_area_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/service_area.html#ServiceArea.get_service_area_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ServiceArea.get_service_area_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Treatment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">Treatment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/treatment.html#Treatment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Treatment" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Treatment.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/treatment.html#Treatment.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Treatment.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Treatment.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/treatment.html#Treatment.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Treatment.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Treatment.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/treatment.html#Treatment.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Treatment.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Treatment.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/treatment.html#Treatment.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Treatment.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Treatment.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/treatment.html#Treatment.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Treatment.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Treatment.get_treatment_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_treatment_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/treatment.html#Treatment.get_treatment_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Treatment.get_treatment_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">Violation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.summarize_violation_data_by_epa_region">
+<span class="sig-name descname"><span class="pre">summarize_violation_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.summarize_violation_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.summarize_violation_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.get_violation_by_epa_region">
+<span class="sig-name descname"><span class="pre">get_violation_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.get_violation_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.get_violation_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.Violation.get_violation_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_violation_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation.html#Violation.get_violation_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.Violation.get_violation_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ViolationEnfAssoc">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">ViolationEnfAssoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation_enf_assoc.html#ViolationEnfAssoc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ViolationEnfAssoc" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ViolationEnfAssoc.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation_enf_assoc.html#ViolationEnfAssoc.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ViolationEnfAssoc.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ViolationEnfAssoc.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation_enf_assoc.html#ViolationEnfAssoc.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ViolationEnfAssoc.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ViolationEnfAssoc.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation_enf_assoc.html#ViolationEnfAssoc.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ViolationEnfAssoc.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ViolationEnfAssoc.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation_enf_assoc.html#ViolationEnfAssoc.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ViolationEnfAssoc.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ViolationEnfAssoc.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation_enf_assoc.html#ViolationEnfAssoc.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ViolationEnfAssoc.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.ViolationEnfAssoc.get_violation_enf_assoc_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_violation_enf_assoc_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/violation_enf_assoc.html#ViolationEnfAssoc.get_violation_enf_assoc_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.ViolationEnfAssoc.get_violation_enf_assoc_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">WaterSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.summarize_water_system_data_by_epa_region">
+<span class="sig-name descname"><span class="pre">summarize_water_system_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.summarize_water_system_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.summarize_water_system_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.get_water_system_by_epa_region">
+<span class="sig-name descname"><span class="pre">get_water_system_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.get_water_system_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.get_water_system_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystem.get_water_system_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_water_system_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system.html#WaterSystem.get_water_system_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystem.get_water_system_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.models.</span></span><span class="sig-name descname"><span class="pre">WaterSystemFacility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.get_table_column_name">
+<span class="sig-name descname"><span class="pre">get_table_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.get_table_column_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.get_table_column_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.get_table_columns_description">
+<span class="sig-name descname"><span class="pre">get_table_columns_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.get_table_columns_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.get_table_columns_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.get_table_data_number">
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.get_table_data_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.get_table_first_data">
+<span class="sig-name descname"><span class="pre">get_table_first_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.get_table_first_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.get_table_first_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.get_table_first_n_data">
+<span class="sig-name descname"><span class="pre">get_table_first_n_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.get_table_first_n_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.get_table_first_n_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.summarize_water_system_facility_data_by_epa_region">
+<span class="sig-name descname"><span class="pre">summarize_water_system_facility_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.summarize_water_system_facility_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.summarize_water_system_facility_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.get_water_system_facility_by_epa_region">
+<span class="sig-name descname"><span class="pre">get_water_system_facility_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.get_water_system_facility_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.get_water_system_facility_by_epa_region" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.models.WaterSystemFacility.get_water_system_facility_data_by_conditions">
+<span class="sig-name descname"><span class="pre">get_water_system_facility_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/models/water_system_facility.html#WaterSystemFacility.get_water_system_facility_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.models.WaterSystemFacility.get_water_system_facility_data_by_conditions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 </section>
 

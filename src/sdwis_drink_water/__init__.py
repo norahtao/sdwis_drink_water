@@ -7,10 +7,10 @@ __version__ = '1.1.0'
 __author__ = ''
 __license__ = 'MIT'
 
-from api import SdwisAPI
-from api_for_table import SdwisTable
-from data_praser import ResultDataParser
-from models import EnforcementAction, GeographicArea, LcrSample, LcrSampleResult, \
+from .api import SdwisAPI
+from .api_for_table import SdwisTable
+from .data_praser import ResultDataParser
+from .models import EnforcementAction, GeographicArea, LcrSample, LcrSampleResult, \
     ServiceArea, Treatment, Violation, ViolationEnfAssoc, WaterSystem, WaterSystemFacility
 
 # Global API

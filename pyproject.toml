@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sdwis_drink_water"
-version = "1.0.0"
+version = "1.1.1"
 description = "Python wrappers for the Envirofacts Data Service API provided by the U.S. Environmental Protection Agency (EPA), with a focus on the Safe Drinking Water Information System (SDWIS)."
 authors = ["norahtao"]
 license = "MIT"
