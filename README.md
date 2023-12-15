@@ -3,10 +3,9 @@
 Python wrappers for the  [Envirofacts Data Service API](https://www.epa.gov/enviro/envirofacts-data-service-api) provided by the U.S. Environmental Protection Agency (EPA), with a focus on the Safe Drinking Water Information System (SDWIS).
 
 
-[![PyPI Version](https://img.shields.io/pypi/v/sdwis-drink-water?label=PyPI)](https://pypi.org/project/sdwis-drink-water/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/sdwis-drink-water?label=Python)](https://pypi.org/project/sdwis-drink-water/)
-
-[![Documentation Status](https://readthedocs.org/projects/sdwis-drink-water/badge/?version=latest)](https://sdwis-drink-water.readthedocs.io/en/latest/)
+[//]: # ([![PyPI Version]&#40;https://img.shields.io/pypi/v/sdwis-drink-water?label=PyPI&#41;]&#40;https://test.pypi.org/project/sdwis-drink-water/&#41;)
+[![TestPyPI Version](https://img.shields.io/badge/TestPyPI-v1.0.0-blue)](https://test.pypi.org/project/sdwis-drink-water/)
+[![Documentation Status](https://readthedocs.org/projects/sdwis-drink-water/badge/?version=latest)](https://sdwis-drink-water.readthedocs.io/en/latest/example.html)
 
 Installation
 ------------
