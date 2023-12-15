@@ -13,6 +13,8 @@ from .data_praser import ResultDataParser
 from .models import EnforcementAction, GeographicArea, LcrSample, LcrSampleResult, \
     ServiceArea, Treatment, Violation, ViolationEnfAssoc, WaterSystem, WaterSystemFacility
 
+from .utils_for_jupyter_print import tabulate_for_jupyter, print_column_description, print_result_data, print_columns
+
 # Global API
 api = SdwisAPI()
 lcr_sample = LcrSample()

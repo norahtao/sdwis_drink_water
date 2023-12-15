@@ -24,8 +24,8 @@
    "outputs": [],
    "source": [
     "from sdwis_drink_water.models import WaterSystem\n",
+    "\n",
     "# Due to the width limitation, I wrote some functions for outputting some results using an interactive scrollbar\n",
-    "from sdwis_drink_water.utils_for_jupyter_print import print_columns, print_column_description, print_result_data\n",
     "\n",
     "water_system_api = WaterSystem(print_url=False)"
    ]
@@ -59,7 +59,7 @@
    ],
    "source": [
     "water_system_columns = water_system_api.get_table_column_name(print_to_console=False)\n",
-    "print_columns(water_system_columns)"
+    "sdwis_drink_water.utils_for_jupyter_print.print_columns(water_system_columns)"
    ],
    "metadata": {
     "collapsed": false,
@@ -106,7 +106,7 @@
    ],
    "source": [
     "water_system_columns_description_dict = water_system_api.get_table_columns_description(print_to_console=False, multi_threads=True)\n",
-    "print_column_description(water_system_columns_description_dict)"
+    "sdwis_drink_water.utils_for_jupyter_print.print_column_description(water_system_columns_description_dict)"
    ],
    "metadata": {
     "collapsed": false,
@@ -148,7 +148,7 @@
     "# fetch first data from LcrSampleResult table\n",
     "first_water_system_data = water_system_api.get_table_first_data(print_to_console=False)\n",
     "\n",
-    "print_result_data(first_water_system_data)"
+    "sdwis_drink_water.utils_for_jupyter_print.print_result_data(first_water_system_data)"
    ],
    "metadata": {
     "collapsed": false,
@@ -189,7 +189,7 @@
    "source": [
     "first_20_water_system_data = water_system_api.get_table_first_n_data(n=20, print_to_console=False)\n",
     "\n",
-    "print_result_data(first_20_water_system_data)"
+    "sdwis_drink_water.utils_for_jupyter_print.print_result_data(first_20_water_system_data)"
    ],
    "metadata": {
     "collapsed": false,
@@ -486,7 +486,7 @@
    ],
    "source": [
     "# print all keys to determine how to use this data\n",
-    "print_columns(list(water_system_epa_1.get_all_keys()))\n",
+    "sdwis_drink_water.utils_for_jupyter_print.print_columns(list(water_system_epa_1.get_all_keys()))\n",
     "\n",
     "# find by condition \"is_grant_eligible_ind==Y\"\n",
     "is_grant_eligible_ind = water_system_epa_1.find_by_condition(\"is_grant_eligible_ind=Y\")\n",

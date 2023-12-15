@@ -18,18 +18,16 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-12-15T17:27:10.813841Z",
-     "start_time": "2023-12-15T17:27:10.241148Z"
+     "end_time": "2023-12-15T18:16:18.593685Z",
+     "start_time": "2023-12-15T18:16:18.066470Z"
     }
    },
    "outputs": [],
    "source": [
-    "from sdwis_drink_water.api_for_table import SdwisTable\n",
+    "import sdwis_drink_water\n",
     "# Due to the width limitation, I wrote some functions for outputting some results using an interactive scrollbar\n",
-    "from sdwis_drink_water.utils_for_jupyter_print import print_columns, print_column_description, print_result_data\n",
-    "\n",
     "# \"print_url=True\" here will cause subsequent queries to display the requested URL\n",
-    "table_api = SdwisTable(print_url=False)"
+    "table_api = sdwis_drink_water.SdwisTable(print_url=False)"
    ]
   },
   {
@@ -50,8 +48,8 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-12-14T16:56:09.454902Z",
-     "start_time": "2023-12-14T16:56:09.453595Z"
+     "end_time": "2023-12-15T18:16:18.598254Z",
+     "start_time": "2023-12-15T18:16:18.594785Z"
     }
    },
    "outputs": [
@@ -97,8 +95,8 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-12-14T16:56:16.318612Z",
-     "start_time": "2023-12-14T16:56:09.456047Z"
+     "end_time": "2023-12-15T18:16:25.824322Z",
+     "start_time": "2023-12-15T18:16:18.597457Z"
     }
    },
    "outputs": [
@@ -106,7 +104,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "Fetching table descriptions from SDWIS Official Website: 100%|██████████| 10/10 [00:06<00:00,  1.46it/s]\n"
+      "Fetching table descriptions from SDWIS Official Website: 100%|██████████| 10/10 [00:07<00:00,  1.39it/s]\n"
      ]
     },
     {
@@ -115,7 +113,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "197b6042995c4367a77bb28d591f4a75"
+       "model_id": "f1e24306bd9547439858a87cfe3b086b"
       }
      },
      "metadata": {},
@@ -124,7 +122,7 @@
    ],
    "source": [
     "table_names_and_descriptions = table_api.get_all_table_names_and_descriptions(print_to_console=False);\n",
-    "print_column_description(table_names_and_descriptions)"
+    "sdwis_drink_water.utils_for_jupyter_print.print_column_description(table_names_and_descriptions)"
    ]
   },
   {
@@ -144,8 +142,8 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-12-14T16:56:35.701926Z",
-     "start_time": "2023-12-14T16:56:16.320129Z"
+     "end_time": "2023-12-15T18:16:26.324899Z",
+     "start_time": "2023-12-15T18:16:25.826289Z"
     }
    },
    "outputs": [
@@ -162,7 +160,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "25d78552c6fd4530811db7a0cc2a3f7c"
+       "model_id": "95962e2572f7446db5ffdcfcaffbf869"
       }
      },
      "metadata": {},
@@ -181,7 +179,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "36ad6aaac0794587bfc1b5c00eaf5fbb"
+       "model_id": "118acd92141e41539f1c4ea7e1862f16"
       }
      },
      "metadata": {},
@@ -200,7 +198,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "627cfe7433f94fcfb2ba649c2c8e9803"
+       "model_id": "9e2bc9e6af4e452680737188f44203b9"
       }
      },
      "metadata": {},
@@ -219,7 +217,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "4e82c9d6feef46fba793a55862b193f1"
+       "model_id": "d4a696c814b64e8a8025e2a84879d985"
       }
      },
      "metadata": {},
@@ -238,7 +236,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "450fe29714f44616b1bf091fff22f32f"
+       "model_id": "1b746d8ec18a452680d2938753eb7cee"
       }
      },
      "metadata": {},
@@ -257,7 +255,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "3dc40532b68441c4a5ecd7cb5cca492b"
+       "model_id": "4d2d3eb42cbe4c07ba9e99dcb21945a8"
       }
      },
      "metadata": {},
@@ -276,7 +274,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "e3783727d4f8492e8084b38c46754f02"
+       "model_id": "b25b33b51aa046e2b8a5e8ebe50ab37d"
       }
      },
      "metadata": {},
@@ -295,7 +293,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "f26f3ee9c1644d1db7243f48f0a3aa86"
+       "model_id": "60959a33ab1d42e585db93cd60d288f0"
       }
      },
      "metadata": {},
@@ -314,7 +312,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "175debf8ad144a52a9d53db28fea6d25"
+       "model_id": "cd0a5e40519747349c3a91ef490eb1eb"
       }
      },
      "metadata": {},
@@ -333,7 +331,7 @@
       "application/vnd.jupyter.widget-view+json": {
        "version_major": 2,
        "version_minor": 0,
-       "model_id": "e82d3cc0c1504d28976d9717f41eed76"
+       "model_id": "a0ef76994168436990c0441c92e4172a"
       }
      },
      "metadata": {},
@@ -344,7 +342,7 @@
     "for table_name in table_names:\n",
     "    print(f\"======{table_name}======\")\n",
     "    columns = table_api.get_table_column_name_by_table_name(table_name=table_name, print_to_console=False)\n",
-    "    print_columns(columns)"
+    "    sdwis_drink_water.utils_for_jupyter_print.print_columns(columns)"
    ]
   },
   {
@@ -364,8 +362,8 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-12-14T16:56:35.715456Z",
-     "start_time": "2023-12-14T16:56:35.706568Z"
+     "end_time": "2023-12-15T18:16:26.325292Z",
+     "start_time": "2023-12-15T18:16:26.293335Z"
     }
    },
    "outputs": [
@@ -383,7 +381,7 @@
     },
     {
      "data": {
-      "text/plain": "<sdwis_drink_water.data_praser.ResultDataParser at 0x105cf1cd0>"
+      "text/plain": "<sdwis_drink_water.data_praser.ResultDataParser at 0x13b335eb0>"
      },
      "execution_count": 5,
      "metadata": {},
@@ -412,8 +410,8 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-12-14T16:56:38.552202Z",
-     "start_time": "2023-12-14T16:56:35.714667Z"
+     "end_time": "2023-12-15T18:16:26.325594Z",
+     "start_time": "2023-12-15T18:16:26.299964Z"
     }
    },
    "outputs": [
@@ -439,7 +437,7 @@
     },
     {
      "data": {
-      "text/plain": "<sdwis_drink_water.data_praser.ResultDataParser at 0x1520498b0>"
+      "text/plain": "<sdwis_drink_water.data_praser.ResultDataParser at 0x13b7812e0>"
      },
      "execution_count": 6,
      "metadata": {},

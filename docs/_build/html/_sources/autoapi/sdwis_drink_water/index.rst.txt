@@ -58,6 +58,17 @@ Classes
 
 
 
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.tabulate_for_jupyter
+   sdwis_drink_water.print_column_description
+   sdwis_drink_water.print_result_data
+   sdwis_drink_water.print_columns
+
+
 
 Attributes
 ~~~~~~~~~~
@@ -722,6 +733,18 @@ Attributes
 
    .. py:method:: get_water_system_facility_data_by_conditions(condition1='', condition2='', condition3='', print_to_console=True, only_count=False)
 
+
+
+.. py:function:: tabulate_for_jupyter(table)
+
+
+.. py:function:: print_column_description(result_dict)
+
+
+.. py:function:: print_result_data(result_data)
+
+
+.. py:function:: print_columns(column_names)
 
 
 .. py:data:: api
