@@ -32,70 +32,186 @@ Attributes
 .. py:class:: SdwisTable(enable_cache=True, print_url=False)
 
 
+   A class to interact with the SDWIS Table API.
+
+   .. attribute:: sdwis_api
+
+      Instance of the SdwisAPI class.
+
+      :type: SdwisAPI
+
    .. py:method:: _get_data_by_request(query_url, print_to_console=False, multi_threads=False)
+
+      Internal method to get data by sending a request to the specified URL.
+
+      :param query_url: The URL to send the request to.
+      :type query_url: str
+      :param print_to_console: Flag to print the result to console.
+      :type print_to_console: bool
+      :param multi_threads: Flag to enable multi-threading for the request.
+      :type multi_threads: bool
+
+      :returns: The query result as a list of dictionaries.
+      :rtype: list
 
 
    .. py:method:: _get_result_data_by_request(query_url, print_to_console=False)
 
+      Internal method to get data by sending a request to the specified URL.
+
+      :param query_url: The URL to send the request to.
+      :type query_url: str
+      :param print_to_console: Flag to print the result to console.
+      :type print_to_console: bool
+
+      :returns: The query result as a list of dictionaries.
+      :rtype: ResultDataParser
+
 
    .. py:method:: get_all_table_names(print_to_console=True)
 
-      :param print_to_console:
-      :param kwargs:
-      :return:
+      Retrieves all table names from the SDWIS database.
+
+      :param print_to_console: Flag to print the table names to console.
+      :type print_to_console: bool
+
+      :returns: A list of all table names.
+      :rtype: list
 
 
    .. py:method:: get_all_table_names_and_descriptions(print_to_console=True)
 
+      Retrieves all table names and their descriptions from the SDWIS database.
+
+      :param print_to_console: Flag to print the table names and descriptions to console.
+      :type print_to_console: bool
+
+      :returns: A list of table names and descriptions or a dictionary if not printed.
+      :rtype: list or dict
+
 
    .. py:method:: get_table_column_name_by_table_name(table_name='', print_to_console=True)
+
+      Retrieves column names for a specified table.
+
+      :param table_name: Name of the table.
+      :type table_name: str
+      :param print_to_console: Flag to print the column names to console.
+      :type print_to_console: bool
+
+      :returns: A list of column names for the specified table.
+      :rtype: list
 
 
    .. py:method:: get_columns_description_by_table_name(table_name='', print_to_console=True, multi_threads=False)
 
+      Retrieves descriptions for all columns of a specified table.
+
+      :param table_name: Name of the table.
+      :type table_name: str
+      :param print_to_console: Flag to print column descriptions to console.
+      :type print_to_console: bool
+      :param multi_threads: Flag to enable multi threads requests.
+      :type multi_threads: bool
+
+      :returns: A dictionary mapping column names to their descriptions.
+      :rtype: dict
+
 
    .. py:method:: get_table_data_number(table_name='')
+
+      Retrieves the number of records in a specified table.
+
+      :param table_name: Name of the table.
+      :type table_name: str
+
+      :returns: The total number of records in the table.
+      :rtype: int
 
 
    .. py:method:: get_table_first_data_by_table_name(table_name='', print_to_console=True)
 
+      Retrieves the first record of a specified table.
+
+      :param table_name: Name of the table.
+      :type table_name: str
+      :param print_to_console: Flag to print the first record to console.
+      :type print_to_console: bool
+
+      :returns: The first record of the table.
+      :rtype: dict or ResultDataParser
+
 
    .. py:method:: get_table_first_n_data_by_table_name(table_name='', n=0, print_to_console=True, multi_threads=False)
+
+      Retrieves the first 'n' records of a specified table.
+
+      :param table_name: Name of the table.
+      :type table_name: str
+      :param n: Number of records to retrieve.
+      :type n: int
+      :param print_to_console: Flag to print the records to console.
+      :type print_to_console: bool
+      :param multi_threads: Flag to enable multi-threading.
+      :type multi_threads: bool
+
+      :returns: A list of the first 'n' records from the table.
+      :rtype: list or ResultDataParser
 
 
    .. py:method:: get_data_by_conditions(table_name='', condition1='', condition2='', condition3='', print_to_console=True, only_count=False)
 
-      condition_handle is combined with column operation
-      :param table_name:
-      :param condition1:
-      :param condition2:
-      :param condition3:
-      :param print_to_console:
-      :param only_count:
-      :param kwargs:
-      :return:
+      Retrieves data from a table based on specified conditions.
+
+      :param table_name: Name of the table.
+      :type table_name: str
+      :param condition1: Conditions for data retrieval.
+      :type condition1: str
+      :param condition2: Conditions for data retrieval.
+      :type condition2: str
+      :param condition3: Conditions for data retrieval.
+      :type condition3: str
+      :param print_to_console: Flag to print the results to console.
+      :type print_to_console: bool
+      :param only_count: Flag to retrieve only the count of matching records.
+      :type only_count: bool
+
+      :returns: List of matching records, or count of records if only_count is True.
+      :rtype: list or int
 
 
    .. py:method:: summarize_data_by_epa_region(table_name='', print_to_console=True, multi_threads=False)
 
-      :param table_name:
-      :param print_to_console:
-      :param only_count:
-      :param multi_threads:
-      :param kwargs:
-      :return:
+      Summarizes data by EPA region for a specified table.
+
+      :param table_name: Name of the table.
+      :type table_name: str
+      :param print_to_console: Flag to print summary to console.
+      :type print_to_console: bool
+      :param multi_threads: Flag to enable multi-threading.
+      :type multi_threads: bool
+
+      :returns: A list containing the data summary by EPA region.
+      :rtype: list
 
 
    .. py:method:: get_data_by_epa_region(table_name='', epa_region=1, print_to_console=True, only_count=False, multi_mode=False)
 
+      Retrieves data from a table filtered by a specific EPA region.
       SAMPLE URL: https://data.epa.gov/efservice/LCR_SAMPLE/EPA_REGION/=/01/JSON
-      :param multi_mode:
-      :param table_name:
-      :param only_count:
-      :param epa_region:
-      :param print_to_console:
-      :param kwargs:
-      :return:
+      :param table_name: Name of the table.
+      :type table_name: str
+      :param epa_region: EPA region number.
+      :type epa_region: int
+      :param print_to_console: Flag to print the results to console.
+      :type print_to_console: bool
+      :param only_count: Flag to retrieve only the count of records.
+      :type only_count: bool
+      :param multi_mode: Flag to enable multi-threading.
+      :type multi_mode: bool
+
+      :returns: List of records or count of records if only_count is True.
+      :rtype: list or int
 
 
 

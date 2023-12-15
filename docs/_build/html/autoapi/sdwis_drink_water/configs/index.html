@@ -47,18 +47,19 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Example usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_get_table_information.html">Example1: Working with SdwisTable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_table_water_system.html">Example2: Working with specific Datatable (use <strong><code class="docutils literal notranslate"><span class="pre">&quot;WaterSystem&quot;</span></code></strong> as example)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_quick_check_lcr_sample_result.html">Example3:  Quickly check how many sample results are out of standard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.api</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api_for_table/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.api_for_table</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.configs</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../data_praser/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.data_praser</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../errors/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.errors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sdwis_drink_water/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.sdwis_drink_water</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.utils</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../utils_for_jupyter_print/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.utils_for_jupyter_print</span></code></a></li>
 </ul>
@@ -66,16 +67,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../enforcement_action/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">enforcement_action</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../treatment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">treatment</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../violation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">violation</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../geographic_area/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geographic_area</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../violation_enf_assoc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">violation_enf_assoc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../water_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">water_system</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../lcr_sample/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lcr_sample</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../water_system_facility/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">water_system_facility</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../lcr_sample_result/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lcr_sample_result</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../service_area/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">service_area</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -111,8 +102,8 @@
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py data">
-<dt class="sig sig-object py" id="sdwis_drink_water.configs.TABLES_LIST">
-<span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.configs.</span></span><span class="sig-name descname"><span class="pre">TABLES_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ENFORCEMENT_ACTION',</span> <span class="pre">'GEOGRAPHIC_AREA',</span> <span class="pre">'LCR_SAMPLE_RESULT',</span> <span class="pre">'LCR_SAMPLE',</span> <span class="pre">'SERVICE_AREA',...</span></em><a class="headerlink" href="#sdwis_drink_water.configs.TABLES_LIST" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="sdwis_drink_water.configs.MAX_QUERY_DATA_LIMIT_A_TIME">
+<span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.configs.</span></span><span class="sig-name descname"><span class="pre">MAX_QUERY_DATA_LIMIT_A_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10000</span></em><a class="headerlink" href="#sdwis_drink_water.configs.MAX_QUERY_DATA_LIMIT_A_TIME" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -121,8 +112,8 @@
 <dd></dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="sdwis_drink_water.configs.MAX_QUERY_DATA_LIMIT_A_TIME">
-<span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.configs.</span></span><span class="sig-name descname"><span class="pre">MAX_QUERY_DATA_LIMIT_A_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10000</span></em><a class="headerlink" href="#sdwis_drink_water.configs.MAX_QUERY_DATA_LIMIT_A_TIME" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="sdwis_drink_water.configs.TABLES_LIST">
+<span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.configs.</span></span><span class="sig-name descname"><span class="pre">TABLES_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ENFORCEMENT_ACTION',</span> <span class="pre">'GEOGRAPHIC_AREA',</span> <span class="pre">'LCR_SAMPLE_RESULT',</span> <span class="pre">'LCR_SAMPLE',</span> <span class="pre">'SERVICE_AREA',...</span></em><a class="headerlink" href="#sdwis_drink_water.configs.TABLES_LIST" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>

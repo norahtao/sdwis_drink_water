@@ -47,18 +47,19 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Example usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_get_table_information.html">Example1: Working with SdwisTable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_table_water_system.html">Example2: Working with specific Datatable (use <strong><code class="docutils literal notranslate"><span class="pre">&quot;WaterSystem&quot;</span></code></strong> as example)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_quick_check_lcr_sample_result.html">Example3:  Quickly check how many sample results are out of standard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.api</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.api_for_table</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../configs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.configs</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../data_praser/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.data_praser</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../errors/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.errors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sdwis_drink_water/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.sdwis_drink_water</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.utils</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../utils_for_jupyter_print/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdwis_drink_water.utils_for_jupyter_print</span></code></a></li>
 </ul>
@@ -66,16 +67,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../enforcement_action/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">enforcement_action</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../treatment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">treatment</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../violation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">violation</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../geographic_area/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geographic_area</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../violation_enf_assoc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">violation_enf_assoc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../water_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">water_system</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../lcr_sample/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lcr_sample</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../water_system_facility/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">water_system_facility</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../lcr_sample_result/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lcr_sample_result</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../service_area/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">service_area</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -115,7 +106,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#sdwis_drink_water.api_for_table.SdwisTable" title="sdwis_drink_water.api_for_table.SdwisTable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SdwisTable</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A class to interact with the SDWIS Table API.</p></td>
 </tr>
 </tbody>
 </table>
@@ -131,112 +122,267 @@
 </table>
 <dl class="py data">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.log">
-<span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.api_for_table.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#sdwis_drink_water.api_for_table.log" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.api_for_table.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="reference internal" href="../../../_modules/logging.html#log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.log" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.api_for_table.</span></span><span class="sig-name descname"><span class="pre">SdwisTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable_cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable" title="Link to this definition"></a></dt>
-<dd><dl class="py method">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdwis_drink_water.api_for_table.</span></span><span class="sig-name descname"><span class="pre">SdwisTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable_cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable" title="Link to this definition"></a></dt>
+<dd><p>A class to interact with the SDWIS Table API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.sdwis_api">
+<span class="sig-name descname"><span class="pre">sdwis_api</span></span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.sdwis_api" title="Link to this definition"></a></dt>
+<dd><p>Instance of the SdwisAPI class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../api/index.html#sdwis_drink_water.api.SdwisAPI" title="sdwis_drink_water.api.SdwisAPI">SdwisAPI</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable._get_data_by_request">
-<span class="sig-name descname"><span class="pre">_get_data_by_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable._get_data_by_request" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable._get_result_data_by_request">
-<span class="sig-name descname"><span class="pre">_get_result_data_by_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable._get_result_data_by_request" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_all_table_names">
-<span class="sig-name descname"><span class="pre">get_all_table_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_all_table_names" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<span class="sig-name descname"><span class="pre">_get_data_by_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable._get_data_by_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable._get_data_by_request" title="Link to this definition"></a></dt>
+<dd><p>Internal method to get data by sending a request to the specified URL.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>print_to_console</strong> – </p></li>
-<li><p><strong>kwargs</strong> – </p></li>
+<li><p><strong>query_url</strong> (<em>str</em>) – The URL to send the request to.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the result to console.</p></li>
+<li><p><strong>multi_threads</strong> (<em>bool</em>) – Flag to enable multi-threading for the request.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>The query result as a list of dictionaries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable._get_result_data_by_request">
+<span class="sig-name descname"><span class="pre">_get_result_data_by_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable._get_result_data_by_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable._get_result_data_by_request" title="Link to this definition"></a></dt>
+<dd><p>Internal method to get data by sending a request to the specified URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_url</strong> (<em>str</em>) – The URL to send the request to.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the result to console.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The query result as a list of dictionaries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser">ResultDataParser</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_all_table_names">
+<span class="sig-name descname"><span class="pre">get_all_table_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_all_table_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_all_table_names" title="Link to this definition"></a></dt>
+<dd><p>Retrieves all table names from the SDWIS database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the table names to console.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of all table names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_all_table_names_and_descriptions">
-<span class="sig-name descname"><span class="pre">get_all_table_names_and_descriptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_all_table_names_and_descriptions" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_all_table_names_and_descriptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_all_table_names_and_descriptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_all_table_names_and_descriptions" title="Link to this definition"></a></dt>
+<dd><p>Retrieves all table names and their descriptions from the SDWIS database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the table names and descriptions to console.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of table names and descriptions or a dictionary if not printed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_table_column_name_by_table_name">
-<span class="sig-name descname"><span class="pre">get_table_column_name_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_column_name_by_table_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_table_column_name_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_table_column_name_by_table_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_column_name_by_table_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves column names for a specified table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the column names to console.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of column names for the specified table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_columns_description_by_table_name">
-<span class="sig-name descname"><span class="pre">get_columns_description_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_columns_description_by_table_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_columns_description_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_columns_description_by_table_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_columns_description_by_table_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves descriptions for all columns of a specified table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print column descriptions to console.</p></li>
+<li><p><strong>multi_threads</strong> (<em>bool</em>) – Flag to enable multi threads requests.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary mapping column names to their descriptions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_table_data_number">
-<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_data_number" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_table_data_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_table_data_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_data_number" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the number of records in a specified table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total number of records in the table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_table_first_data_by_table_name">
-<span class="sig-name descname"><span class="pre">get_table_first_data_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_first_data_by_table_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_table_first_data_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_table_first_data_by_table_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_first_data_by_table_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the first record of a specified table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the first record to console.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The first record of the table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict or <a class="reference internal" href="../data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser">ResultDataParser</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_table_first_n_data_by_table_name">
-<span class="sig-name descname"><span class="pre">get_table_first_n_data_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_first_n_data_by_table_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_table_first_n_data_by_table_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_table_first_n_data_by_table_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_table_first_n_data_by_table_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the first ‘n’ records of a specified table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of records to retrieve.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the records to console.</p></li>
+<li><p><strong>multi_threads</strong> (<em>bool</em>) – Flag to enable multi-threading.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of the first ‘n’ records from the table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or <a class="reference internal" href="../data_praser/index.html#sdwis_drink_water.data_praser.ResultDataParser" title="sdwis_drink_water.data_praser.ResultDataParser">ResultDataParser</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_data_by_conditions">
-<span class="sig-name descname"><span class="pre">get_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_data_by_conditions" title="Link to this definition"></a></dt>
-<dd><p>condition_handle is combined with column operation
-:param table_name:
-:param condition1:
-:param condition2:
-:param condition3:
-:param print_to_console:
-:param only_count:
-:param kwargs:
-:return:</p>
+<span class="sig-name descname"><span class="pre">get_data_by_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_data_by_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_data_by_conditions" title="Link to this definition"></a></dt>
+<dd><p>Retrieves data from a table based on specified conditions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p></li>
+<li><p><strong>condition1</strong> (<em>str</em>) – Conditions for data retrieval.</p></li>
+<li><p><strong>condition2</strong> (<em>str</em>) – Conditions for data retrieval.</p></li>
+<li><p><strong>condition3</strong> (<em>str</em>) – Conditions for data retrieval.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print the results to console.</p></li>
+<li><p><strong>only_count</strong> (<em>bool</em>) – Flag to retrieve only the count of matching records.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of matching records, or count of records if only_count is True.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.summarize_data_by_epa_region">
-<span class="sig-name descname"><span class="pre">summarize_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.summarize_data_by_epa_region" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<span class="sig-name descname"><span class="pre">summarize_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.summarize_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.summarize_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd><p>Summarizes data by EPA region for a specified table.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>table_name</strong> – </p></li>
-<li><p><strong>print_to_console</strong> – </p></li>
-<li><p><strong>only_count</strong> – </p></li>
-<li><p><strong>multi_threads</strong> – </p></li>
-<li><p><strong>kwargs</strong> – </p></li>
+<li><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p></li>
+<li><p><strong>print_to_console</strong> (<em>bool</em>) – Flag to print summary to console.</p></li>
+<li><p><strong>multi_threads</strong> (<em>bool</em>) – Flag to enable multi-threading.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>A list containing the data summary by EPA region.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sdwis_drink_water.api_for_table.SdwisTable.get_data_by_epa_region">
-<span class="sig-name descname"><span class="pre">get_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_data_by_epa_region" title="Link to this definition"></a></dt>
-<dd><p>SAMPLE URL: <a class="reference external" href="https://data.epa.gov/efservice/LCR_SAMPLE/EPA_REGION/=/01/JSON">https://data.epa.gov/efservice/LCR_SAMPLE/EPA_REGION/=/01/JSON</a>
-:param multi_mode:
-:param table_name:
-:param only_count:
-:param epa_region:
-:param print_to_console:
-:param kwargs:
-:return:</p>
+<span class="sig-name descname"><span class="pre">get_data_by_epa_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epa_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_to_console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sdwis_drink_water/api_for_table.html#SdwisTable.get_data_by_epa_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdwis_drink_water.api_for_table.SdwisTable.get_data_by_epa_region" title="Link to this definition"></a></dt>
+<dd><p>Retrieves data from a table filtered by a specific EPA region.
+SAMPLE URL: <a class="reference external" href="https://data.epa.gov/efservice/LCR_SAMPLE/EPA_REGION/=/01/JSON">https://data.epa.gov/efservice/LCR_SAMPLE/EPA_REGION/=/01/JSON</a>
+:param table_name: Name of the table.
+:type table_name: str
+:param epa_region: EPA region number.
+:type epa_region: int
+:param print_to_console: Flag to print the results to console.
+:type print_to_console: bool
+:param only_count: Flag to retrieve only the count of records.
+:type only_count: bool
+:param multi_mode: Flag to enable multi-threading.
+:type multi_mode: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of records or count of records if only_count is True.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list or int</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

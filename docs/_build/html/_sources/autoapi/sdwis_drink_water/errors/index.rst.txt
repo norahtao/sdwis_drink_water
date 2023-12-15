@@ -7,35 +7,45 @@
 Module Contents
 ---------------
 
-.. py:exception:: SdwisException
+.. py:exception:: SdwisHTTPException(message='An HTTP error occurred in the SDWIS package')
 
 
    Bases: :py:obj:`Exception`
 
-   Common base class for all non-exit exceptions.
+   Exception raised for HTTP-related errors in the SDWIS package.
+
+   .. attribute:: message
+
+      Explanation of the error.
+
+      :type: str
 
 
-.. py:exception:: SdwisHTTPException
-
-
-   Bases: :py:obj:`Exception`
-
-   Common base class for all non-exit exceptions.
-
-
-.. py:exception:: SdwisQueryParamsException
-
-
-   Bases: :py:obj:`Exception`
-
-   Common base class for all non-exit exceptions.
-
-
-.. py:exception:: SdwisResultDataParserException
+.. py:exception:: SdwisQueryParamsException(message='A query parameter error occurred in the SDWIS package')
 
 
    Bases: :py:obj:`Exception`
 
-   Common base class for all non-exit exceptions.
+   Exception raised for errors related to query parameters in SDWIS API requests.
+
+   .. attribute:: message
+
+      Explanation of the error.
+
+      :type: str
+
+
+.. py:exception:: SdwisResultDataParserException(message='A data parsing error occurred in the SDWIS package')
+
+
+   Bases: :py:obj:`Exception`
+
+   Exception raised for errors encountered while parsing results data from SDWIS API.
+
+   .. attribute:: message
+
+      Explanation of the error.
+
+      :type: str
 
 

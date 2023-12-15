@@ -58,28 +58,103 @@ Attributes
 
 .. py:function:: process_table_column_condition(condition_handle)
 
+   Processes a condition string for a table column.
+
+   :param condition_handle: A condition string in the format 'column>value'.
+   :type condition_handle: str
+
+   :returns: A processed string in the format 'column/operator/value'.
+   :rtype: str
+
+   :raises ValueError: If the condition string is not in the expected format.
+
 
 .. py:function:: extract_description_from_description_page(html_content, desc_string='Description:')
+
+   Extracts a description from an HTML page.
+
+   :param html_content: HTML content of the page.
+   :type html_content: str
+   :param desc_string: The description tag to search for.
+   :type desc_string: str
+
+   :returns: The extracted description text or an error message.
+   :rtype: str
 
 
 .. py:function:: extract_description_from_table_description_page(html_content)
 
+   Extracts a table description from an official site HTML page.
+
+   :param html_content: HTML content of the page.
+   :type html_content: str
+
+   :returns: Extracted table description.
+   :rtype: str
+
 
 .. py:function:: extract_description_from_column_description_page(html_content)
+
+   Extracts a column description from an official site HTML page.
+
+   :param html_content: HTML content of the page.
+   :type html_content: str
+
+   :returns: Extracted column description.
+   :rtype: str
 
 
 .. py:function:: get_table_description(table_name, session)
 
+   Retrieves the description of a table from the Envirofacts database.
+
+   :param table_name: Name of the table.
+   :type table_name: str
+   :param session: The session used to make the request.
+   :type session: requests.Session
+
+   :returns: Table description or an error message.
+   :rtype: str
+
 
 .. py:function:: get_column_description(column_name, session)
+
+   Retrieves the description of a column from the Envirofacts database.
+
+   :param column_name: Name of the column.
+   :type column_name: str
+   :param session: The session used to make the request.
+   :type session: requests.Session
+
+   :returns: Column description or an error message.
+   :rtype: str
 
 
 .. py:function:: print_tabulate_result_with_divider(tabulate_result)
 
+   Prints a tabulated result with dividers for better readability.
+
+   :param tabulate_result: The tabulated result to be printed.
+   :type tabulate_result: str
+
 
 .. py:function:: _is_table_has_epa_region(table_name)
 
+   Checks if a table includes an EPA region column.
+
+   :param table_name: Name of the table.
+   :type table_name: str
+
+   :raises SdwisQueryParamsException: If the table does not include an EPA region column.
+
 
 .. py:function:: _is_epa_region_param_valid(epa_region)
+
+   Validates the EPA region parameter.
+
+   :param epa_region: EPA region value to validate.
+   :type epa_region: int
+
+   :raises SdwisQueryParamsException: If the epa_region is not an integer or not in the range 1-10.
 
 

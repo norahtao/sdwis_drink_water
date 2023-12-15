@@ -32,17 +32,81 @@ Attributes
 .. py:class:: SdwisAPI(base_url='https://data.epa.gov/efservice', retry_count=0, retry_delay=0, timeout=10, user_agent=None, enable_cache=True, cache_time=3600, print_url=False)
 
 
+   The SdwisAPI class provides an interface to interact with the EPA's SDWIS data service.
+   It supports making HTTP requests with optional caching and retries.
+
+   .. attribute:: base_url
+
+      The base URL for the EPA's data service.
+
+      :type: str
+
+   .. attribute:: retry_count
+
+      Number of times to retry a request on failure.
+
+      :type: int
+
+   .. attribute:: retry_delay
+
+      Delay between retries in seconds.
+
+      :type: int
+
+   .. attribute:: timeout
+
+      Timeout for the HTTP requests.
+
+      :type: int
+
+   .. attribute:: enable_cache
+
+      Flag to enable or disable request caching.
+
+      :type: bool
+
+   .. attribute:: cache_time
+
+      Duration for which the cache is valid.
+
+      :type: int
+
+   .. attribute:: print_url
+
+      Flag to enable or disable printing of the request URL.
+
+      :type: bool
+
+   .. attribute:: user_agent
+
+      User agent string for the HTTP requests.
+
+      :type: str
+
    .. py:method:: get_request(url, endpoint_parameters=(), params=None, only_count=False, headers=None, use_cache=True, multi_mode=False, **kwargs)
 
-      :param url:
-      :param endpoint_parameters:
-      :param params:
-      :param only_count:
-      :param headers:
-      :param use_cache:
-      :param multi_mode:
-      :param kwargs:
-      :return:
+      Sends a GET request to the specified URL with optional parameters.
+
+      :param url: The URL to send the request to.
+      :type url: str
+      :param endpoint_parameters: Additional parameters for the endpoint.
+      :type endpoint_parameters: tuple
+      :param params: Query parameters for the request.
+      :type params: dict
+      :param only_count: Flag to return only count in the response.
+      :type only_count: bool
+      :param headers: HTTP headers for the request.
+      :type headers: dict
+      :param use_cache: Flag to use cache for the request.
+      :type use_cache: bool
+      :param multi_mode: Flag to enable or disable multi-threading mode.
+      :type multi_mode: bool
+      :param kwargs: Additional keyword arguments.
+
+      :returns: Parsed JSON response from the API / Or number
+      :rtype: dict or int
+
+      :raises SdwisHTTPException: If the HTTP request fails or returns an error.
 
 
 

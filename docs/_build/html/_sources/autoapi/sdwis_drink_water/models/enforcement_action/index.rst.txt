@@ -1,0 +1,41 @@
+:py:mod:`sdwis_drink_water.models.enforcement_action`
+=====================================================
+
+.. py:module:: sdwis_drink_water.models.enforcement_action
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.models.enforcement_action.EnforcementAction
+
+
+
+
+.. py:class:: EnforcementAction(print_url=False)
+
+
+   .. py:method:: get_table_column_name(print_to_console=True)
+
+
+   .. py:method:: get_table_columns_description(multi_threads=False, print_to_console=True)
+
+
+   .. py:method:: get_table_data_number()
+
+
+   .. py:method:: get_table_first_data(print_to_console=True)
+
+
+   .. py:method:: get_table_first_n_data(n=0, multi_threads=False, print_to_console=True)
+
+
+   .. py:method:: get_enforcement_action_data_by_conditions(condition1='', condition2='', condition3='', print_to_console=True, only_count=False)
+
+
+

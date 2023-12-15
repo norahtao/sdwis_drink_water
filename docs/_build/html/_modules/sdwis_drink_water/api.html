@@ -6,7 +6,7 @@
   <title>sdwis_drink_water.api &mdash; sdwis_drink_water  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
 
   
@@ -88,12 +88,39 @@
 
 
 <div class="viewcode-block" id="SdwisAPI">
-<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/api/index.html#sdwis_drink_water.api.SdwisAPI">[docs]</a>
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/index.html#sdwis_drink_water.api.SdwisAPI">[docs]</a>
 <span class="k">class</span> <span class="nc">SdwisAPI</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The SdwisAPI class provides an interface to interact with the EPA&#39;s SDWIS data service.</span>
+<span class="sd">    It supports making HTTP requests with optional caching and retries.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        base_url (str): The base URL for the EPA&#39;s data service.</span>
+<span class="sd">        retry_count (int): Number of times to retry a request on failure.</span>
+<span class="sd">        retry_delay (int): Delay between retries in seconds.</span>
+<span class="sd">        timeout (int): Timeout for the HTTP requests.</span>
+<span class="sd">        enable_cache (bool): Flag to enable or disable request caching.</span>
+<span class="sd">        cache_time (int): Duration for which the cache is valid.</span>
+<span class="sd">        print_url (bool): Flag to enable or disable printing of the request URL.</span>
+<span class="sd">        user_agent (str): User agent string for the HTTP requests.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s1">&#39;https://data.epa.gov/efservice&#39;</span><span class="p">,</span> <span class="n">retry_count</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">retry_delay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">user_agent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">enable_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_time</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span> <span class="n">print_url</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the SdwisAPI object with given configuration.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            base_url (str): The base URL for the EPA&#39;s data service.</span>
+<span class="sd">            retry_count (int): Number of times to retry a request on failure.</span>
+<span class="sd">            retry_delay (int): Delay between retries in seconds.</span>
+<span class="sd">            timeout (int): Timeout for the HTTP requests.</span>
+<span class="sd">            user_agent (str): User agent string for the HTTP requests.</span>
+<span class="sd">            enable_cache (bool): Flag to enable or disable request caching.</span>
+<span class="sd">            cache_time (int): Duration for which the cache is valid.</span>
+<span class="sd">            print_url (bool): Flag to enable or disable printing of the request URL.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">base_url</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">retry_count</span> <span class="o">=</span> <span class="n">retry_count</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">retry_delay</span> <span class="o">=</span> <span class="n">retry_delay</span>
@@ -116,21 +143,27 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">multi_threads_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 
 <div class="viewcode-block" id="SdwisAPI.get_request">
-<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/api/index.html#sdwis_drink_water.api.SdwisAPI.get_request">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_request</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">endpoint_parameters</span><span class="o">=</span><span class="p">(),</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">only_count</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">multi_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-    <span class="p">):</span>
+<a class="viewcode-back" href="../../autoapi/sdwis_drink_water/index.html#sdwis_drink_water.api.SdwisAPI.get_request">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">endpoint_parameters</span><span class="o">=</span><span class="p">(),</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">only_count</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">multi_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :param url:</span>
-<span class="sd">        :param endpoint_parameters:</span>
-<span class="sd">        :param params:</span>
-<span class="sd">        :param only_count:</span>
-<span class="sd">        :param headers:</span>
-<span class="sd">        :param use_cache:</span>
-<span class="sd">        :param multi_mode:</span>
-<span class="sd">        :param kwargs:</span>
-<span class="sd">        :return:</span>
+<span class="sd">        Sends a GET request to the specified URL with optional parameters.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            url (str): The URL to send the request to.</span>
+<span class="sd">            endpoint_parameters (tuple): Additional parameters for the endpoint.</span>
+<span class="sd">            params (dict): Query parameters for the request.</span>
+<span class="sd">            only_count (bool): Flag to return only count in the response.</span>
+<span class="sd">            headers (dict): HTTP headers for the request.</span>
+<span class="sd">            use_cache (bool): Flag to use cache for the request.</span>
+<span class="sd">            multi_mode (bool): Flag to enable or disable multi-threading mode.</span>
+<span class="sd">            kwargs: Additional keyword arguments.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict or int: Parsed JSON response from the API / Or number</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            SdwisHTTPException: If the HTTP request fails or returns an error.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">only_count</span><span class="p">:</span>
             <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">/COUNT&quot;</span>

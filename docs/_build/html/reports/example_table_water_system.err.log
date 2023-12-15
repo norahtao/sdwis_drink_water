@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/nbclient/client.py", line 782, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 189, in ensure_async
+    result = await obj
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/jupyter_client/channels.py", line 315, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/bytedance/.pyenv/versions/3.9.18/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/nbclient/client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+  File "/Users/bytedance/Desktop/codes/xenon_generation_sft/venv/lib/python3.9/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+water_system_data_number = water_system_api.get_table_data_number()
+all_water_system = water_system_api.get_table_first_n_data(n=water_system_data_number, multi_threads=True, print_to_console=False)
+# You can also just set n to a big number
+# all_water_system = water_system_api.get_table_first_n_data(n=99999999, multi_threads=True, print_to_console=False)
+all_water_system.export_data("./output_files/all_water_system.xlsx", format_type="xlsx")
+-------------------
+

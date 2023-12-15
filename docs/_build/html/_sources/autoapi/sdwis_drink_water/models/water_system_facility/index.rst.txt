@@ -1,0 +1,47 @@
+:py:mod:`sdwis_drink_water.models.water_system_facility`
+========================================================
+
+.. py:module:: sdwis_drink_water.models.water_system_facility
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   sdwis_drink_water.models.water_system_facility.WaterSystemFacility
+
+
+
+
+.. py:class:: WaterSystemFacility(print_url=False)
+
+
+   .. py:method:: get_table_column_name(print_to_console=True)
+
+
+   .. py:method:: get_table_columns_description(multi_threads=False, print_to_console=True)
+
+
+   .. py:method:: get_table_data_number()
+
+
+   .. py:method:: get_table_first_data(print_to_console=True)
+
+
+   .. py:method:: get_table_first_n_data(n=0, multi_threads=False, print_to_console=True)
+
+
+   .. py:method:: summarize_water_system_facility_data_by_epa_region(print_to_console=True, multi_threads=False)
+
+
+   .. py:method:: get_water_system_facility_by_epa_region(epa_region=1, print_to_console=True, only_count=False)
+
+
+   .. py:method:: get_water_system_facility_data_by_conditions(condition1='', condition2='', condition3='', print_to_console=True, only_count=False)
+
+
+

@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example usage" href="example.html" /> 
+    <link rel="next" title="Example1: Working with SdwisTable" href="example_get_table_information.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,10 +46,9 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="example.html">Example usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_get_table_information.html">Example1: Working with SdwisTable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_table_water_system.html">Example2: Working with specific Datatable (use <strong><code class="docutils literal notranslate"><span class="pre">&quot;WaterSystem&quot;</span></code></strong> as example)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_quick_check_lcr_sample_result.html">Example3:  Quickly check how many sample results are out of standard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
 </ul>
 
@@ -80,25 +79,24 @@
   <section id="sdwis-drink-water-safe-drinking-water-information-system-sdwis-api-wrapper">
 <h1>sdwis-drink-water: Safe Drinking Water Information System (SDWIS) API Wrapper<a class="headerlink" href="#sdwis-drink-water-safe-drinking-water-information-system-sdwis-api-wrapper" title="Link to this heading"></a></h1>
 <p>Python wrappers for the  <a class="reference external" href="https://www.epa.gov/enviro/envirofacts-data-service-api">Envirofacts Data Service API</a> provided by the U.S. Environmental Protection Agency (EPA), with a focus on the Safe Drinking Water Information System (SDWIS).</p>
-<p><a class="reference external" href="https://pypi.org/project/sdwis-drink-water/"><img alt="PyPI Version" src="https://img.shields.io/pypi/v/sdwis-drink-water?label=PyPI" /></a>
-<a class="reference external" href="https://pypi.org/project/sdwis-drink-water/"><img alt="Python Versions" src="https://img.shields.io/pypi/pyversions/sdwis-drink-water?label=Python" /></a></p>
-<p><a class="reference external" href="https://sdwis-drink-water.readthedocs.io/en/latest/"><img alt="Documentation Status" src="https://readthedocs.org/projects/sdwis-drink-water/badge/?version=latest" /></a></p>
+<p><a class="reference external" href="https://pypi.org/project/sdwis_drink_water/"><img alt="PyPI Version" src="https://img.shields.io/pypi/v/sdwis_drink_water?label=PyPI" /></a>
+<a class="reference external" href="https://sdwis-drink-water.readthedocs.io/en/latest/example.html"><img alt="Documentation Status" src="https://readthedocs.org/projects/sdwis-drink-water/badge/?version=latest" /></a></p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>The easiest way to install the latest version from PyPI is by using
 <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install sdwis-drink-water
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install sdwis_drink_water
 </pre></div>
 </div>
 <p>You can also use Git to clone the repository from GitHub to install the latest
 development version:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/norahtao/sdwis_drink_water
 cd sdwis-drink-water
 pip install .
 </pre></div>
 </div>
 <p>Alternatively, install directly from the GitHub repository:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install git+https://
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/norahtao/sdwis_drink_water
 </pre></div>
 </div>
 </section>
@@ -269,6 +267,41 @@ If you only want to focus on specific TABLE, you can directly use its Class.</p>
 </div>
 </section>
 </section>
+<section id="how-many-drinking-water-test-samples-have-lead-levels-that-meet-the-old-regulations-but-not-the-new-ones">
+<h3>How many drinking water test samples have lead levels that meet the old regulations but not the new ones?<a class="headerlink" href="#how-many-drinking-water-test-samples-have-lead-levels-that-meet-the-old-regulations-but-not-the-new-ones" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BACKGROUND: EPA is proposing to lower the lead action level from 15 µg/L (0.015mg/L) to 10 µg/L (0.01mg/L)</span>
+<span class="c1"># We want to look at the database and see those samples that match the original rule, but not the new one.</span>
+<span class="kn">from</span> <span class="nn">sdwis_drink_water</span> <span class="kn">import</span> <span class="n">LcrSampleResult</span>
+
+<span class="n">lcr_sample_result_api</span> <span class="o">=</span> <span class="n">LcrSampleResult</span><span class="p">(</span><span class="n">print_url</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># fetch first data from LcrSampleResult table</span>
+<span class="n">lcr_sample_result_api</span><span class="o">.</span><span class="n">get_table_first_data</span><span class="p">()</span>
+<span class="c1"># Setting &quot;multi_threads=True&quot; will use multithreading to speed up the fetching of data</span>
+<span class="n">lcr_sample_result_api</span><span class="o">.</span><span class="n">get_table_columns_description</span><span class="p">(</span><span class="n">multi_threads</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Samples exceeding the original rule</span>
+<span class="n">pb90_exceed_original_rule</span> <span class="o">=</span> <span class="n">lcr_sample_result_api</span><span class="o">.</span><span class="n">get_lcr_sample_result_data_by_conditions</span><span class="p">(</span><span class="s2">&quot;contaminant_code=PB90&quot;</span><span class="p">,</span>
+                                                                                           <span class="s2">&quot;result_sign_code==&quot;</span><span class="p">,</span>
+                                                                                           <span class="s2">&quot;sample_measure&gt;0.015&quot;</span><span class="p">)</span>
+<span class="c1"># Samples exceeding the new rule</span>
+<span class="n">pb90_exceed_new_rule</span> <span class="o">=</span> <span class="n">lcr_sample_result_api</span><span class="o">.</span><span class="n">get_lcr_sample_result_data_by_conditions</span><span class="p">(</span><span class="s2">&quot;contaminant_code=PB90&quot;</span><span class="p">,</span>
+                                                                                      <span class="s2">&quot;result_sign_code==&quot;</span><span class="p">,</span>
+                                                                                      <span class="s2">&quot;sample_measure&gt;0.01&quot;</span><span class="p">)</span>
+<span class="c1"># fetch their intersection, union, difference</span>
+<span class="c1"># here intersection is the number of pb90_exceed_original_rule</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pb90_exceed_original_rule</span><span class="o">.</span><span class="n">intersect_with</span><span class="p">(</span><span class="n">pb90_exceed_new_rule</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="c1"># here union is the number of pb90_exceed_new_rule</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pb90_exceed_original_rule</span><span class="o">.</span><span class="n">merge_with</span><span class="p">(</span><span class="n">pb90_exceed_new_rule</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="c1"># get difference. These samples comply with the original rule, but not the new rule. Additional attention is required</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pb90_exceed_new_rule</span><span class="o">.</span><span class="n">difference_with</span><span class="p">(</span><span class="n">pb90_exceed_original_rule</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+
+<span class="n">result_we_need</span> <span class="o">=</span> <span class="n">pb90_exceed_new_rule</span><span class="o">.</span><span class="n">difference_with</span><span class="p">(</span><span class="n">pb90_exceed_original_rule</span><span class="p">)</span>
+<span class="n">result_we_need</span><span class="o">.</span><span class="n">export_data</span><span class="p">(</span><span class="s2">&quot;./output_files/Sample sets for additional attention in the new regulation of Lead.xlsx&quot;</span><span class="p">,</span>
+                           <span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="quickly-access-to-full-database-then-export-to-a-xlsx-file">
 <h3>Quickly access to full database, then export to a xlsx file<a class="headerlink" href="#quickly-access-to-full-database-then-export-to-a-xlsx-file" title="Link to this heading"></a></h3>
 <p>This package can serves as an efficient crawler tool, designed to swiftly scrape the entire contents of a data table and export them to an XLSX file. It adeptly navigates the API’s restriction of returning a maximum of 10,000 items per query by intelligently segmenting the query into multiple smaller queries. Additionally, the tool boasts a multi-threaded mode, activated by setting the parameter “multi_threads=True”. This mode leverages the power of parallel processing to significantly accelerate the rate at which query results are retrieved, ensuring a more efficient and time-effective data collection process.</p>
@@ -287,11 +320,20 @@ If you only want to focus on specific TABLE, you can directly use its Class.</p>
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
-<p>I have added a repository with examples in a python notebook to better see the
-usage of the library: https://github.com/RomelTorres/av_example</p>
-</section>
-<section id="tests">
-<h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
+<p>We have provided various examples to help you understand and use our package effectively:</p>
+<ul class="simple">
+<li><p><strong>Folder Examples</strong>:</p>
+<ul>
+<li><p>Visit the <a class="reference internal" href="#./examples/"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">examples</span></code> folder</span></a> for standalone scripts and usage demonstrations.</p></li>
+</ul>
+</li>
+<li><p><strong>Jupyter Notebook Examples</strong>:</p>
+<ul>
+<li><p>For interactive and detailed usage examples, check out the Jupyter notebooks in the <a class="reference internal" href="#./notebooks/"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">notebooks</span></code> folder</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+<p>These examples cover a range of scenarios and use cases, demonstrating the functionality and features of our package in practical settings.</p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
@@ -305,10 +347,6 @@ usage of the library: https://github.com/RomelTorres/av_example</p>
 <h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code> was created by norahtao. It is licensed under the terms of the MIT license.</p>
 </section>
-<section id="credits">
-<h2>Credits<a class="headerlink" href="#credits" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code> was created with <a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code></a> and the <code class="docutils literal notranslate"><span class="pre">py-pkgs-cookiecutter</span></code> <a class="reference external" href="https://github.com/py-pkgs/py-pkgs-cookiecutter">template</a>.</p>
-</section>
 <section id="todos">
 <h2>TODOs<a class="headerlink" href="#todos" title="Link to this heading"></a></h2>
 <ul class="simple">
@@ -319,8 +357,13 @@ usage of the library: https://github.com/RomelTorres/av_example</p>
 <h2>Contact<a class="headerlink" href="#contact" title="Link to this heading"></a></h2>
 <p>You can reach/follow me on any of the following platforms:</p>
 <ul class="simple">
+<li><p>Author: norahtao</p></li>
 <li><p>Email: rt29112&#64;columbia.edu</p></li>
 </ul>
+</section>
+<section id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sdwis_drink_water</span></code> was created with <a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code></a> and the <code class="docutils literal notranslate"><span class="pre">py-pkgs-cookiecutter</span></code> <a class="reference external" href="https://github.com/py-pkgs/py-pkgs-cookiecutter">template</a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -330,7 +373,7 @@ usage of the library: https://github.com/RomelTorres/av_example</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example.html" class="btn btn-neutral float-right" title="Example usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example_get_table_information.html" class="btn btn-neutral float-right" title="Example1: Working with SdwisTable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
